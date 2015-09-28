@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('missionhubPrototype')
+    .module('missionhub')
     .run(runBlock);
 
   /** @ngInject */

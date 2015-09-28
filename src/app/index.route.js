@@ -2,20 +2,18 @@
   'use strict';
 
   angular
-    .module('missionhubPrototype')
+    .module('missionhub')
     .config(routeConfig);
 
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-      .state('home', {
-        url: '/',
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      .state('dashboard', {
+        url: '/dashboard',
+        template: '<dashboard></dashboard>'
       });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/dashboard');
   }
 
 })();

@@ -1,11 +1,9 @@
-/* global malarkey:false, toastr:false, moment:false */
+/* global moment:false */
 (function() {
   'use strict';
 
   angular
-    .module('missionhubPrototype')
-    .constant('malarkey', malarkey)
-    .constant('toastr', toastr)
+    .module('missionhub')
     .constant('moment', moment);
 
 })();

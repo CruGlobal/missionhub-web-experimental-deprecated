@@ -2,6 +2,16 @@
   'use strict';
 
   angular
-    .module('missionhubPrototype', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'restangular', 'ui.router', 'ui.bootstrap']);
+    .module('missionhub', [
+      'ngAnimate',
+      'ngCookies',
+      'ngTouch',
+      'ngSanitize',
+      'restangular',
+      'ui.router',
+      'ui.bootstrap',
+
+      'missionhub.dashboard'
+    ]);
 
 })();
