@@ -19,6 +19,7 @@
     "bootstrap-social": "~4.10.1",
     "angular-spinkit": "~0.3.3",
     "lodash": "~3.10.1",
+    "angular-material": "~0.11.1",
     "angular-material-data-table": "~0.8.14",
     "angular-material-icons": "~0.6.0",
     "missionhub-js": "~0.0.2",
