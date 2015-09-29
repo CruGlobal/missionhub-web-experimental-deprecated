@@ -12,7 +12,8 @@
       'ui.bootstrap',
 
       'missionhub.navbar',
-      'missionhub.dashboard'
+      'missionhub.dashboard',
+      'missionhub.people'
     ]);
 
 })();
