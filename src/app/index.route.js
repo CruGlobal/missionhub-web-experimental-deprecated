@@ -9,7 +9,7 @@
   function routeConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
       .state('welcome', {
-        url: '/welcome',
+        url: '/',
         template: '<welcome></welcome>'
       })
       .state('dashboard', {
@@ -24,7 +24,7 @@
         authenticate: true
       });
 
-    $urlRouterProvider.otherwise('/welcome');
+    $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true).hashPrefix('!');
   }
 
