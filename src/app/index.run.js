@@ -6,9 +6,10 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
+  function runBlock($log, authenticator) {
 
     $log.debug('runBlock end');
+    authenticator.initialize();
   }
 
 })();

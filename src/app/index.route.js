@@ -8,17 +8,23 @@
   /** @ngInject */
   function routeConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider
+      .state('welcome', {
+        url: '/welcome',
+        template: '<welcome></welcome>'
+      })
       .state('dashboard', {
         url: '/dashboard',
-        template: '<dashboard></dashboard>'
+        template: '<dashboard></dashboard>',
+        authenticate: true
       })
       .state('people', {
         url: '/people',
+        template: '<ui-view/>',
         abstract: true,
-        template: '<ui-view/>'
+        authenticate: true
       });
 
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/welcome');
     $locationProvider.html5Mode(true).hashPrefix('!');
   }
 

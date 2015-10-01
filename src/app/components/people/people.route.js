@@ -10,11 +10,13 @@
     $stateProvider
       .state('people.index', {
         url: '',
-        template: '<people></people>'
+        template: '<people></people>',
+        authenticate: true
       })
       .state('people.import', {
         url: '/import',
-        template: '<people-import></people-import>'
+        template: '<people-import></people-import>',
+        authenticate: true
       });
 
   }

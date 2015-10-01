@@ -23,11 +23,16 @@
     /** @ngInject */
     function PeopleImportController() {
       var vm = this;
+      vm.onPicked = onPicked;
 
       activate();
 
       function activate() {
 
+      }
+
+      function onPicked(docs) {
+        console.log(docs);
       }
     }
   }

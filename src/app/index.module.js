@@ -3,6 +3,7 @@
 
   angular
     .module('missionhub', [
+      //vendor modules
       'ngAnimate',
       'ngCookies',
       'ngTouch',
@@ -10,10 +11,16 @@
       'restangular',
       'ui.router',
       'ui.bootstrap',
+      'satellizer',
 
+      //app directive modules
       'missionhub.navbar',
+      'missionhub.welcome',
       'missionhub.dashboard',
-      'missionhub.people'
+      'missionhub.people',
+
+      //app service modules
+      'missionhub.auth'
     ]);
 
 })();

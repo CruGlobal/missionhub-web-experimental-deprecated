@@ -2,6 +2,8 @@
   'use strict';
 
   angular
-    .module('missionhub.people.import', []);
+    .module('missionhub.people.import', [
+      'lk-google-picker'
+    ]);
 
 })();

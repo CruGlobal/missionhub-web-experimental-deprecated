@@ -23,6 +23,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Organization</a></li>
         <li><a href="#">Account</a></li>
+        <li><a href="#" ng-click="navbar.auth.logout()" ng-if="navbar.auth.isAuthenticated()">Sign out</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
