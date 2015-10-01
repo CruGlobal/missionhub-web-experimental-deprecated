@@ -44,15 +44,24 @@ module.exports = function(config) {
 
     browsers : ['PhantomJS'],
 
+    reporters: ['mocha', 'coverage'],
+
     plugins : [
       'karma-phantomjs-launcher',
       'karma-angular-filesort',
       'karma-jasmine',
-      'karma-ng-html2js-preprocessor'
+      'karma-ng-html2js-preprocessor',
+      'karma-mocha-reporter',
+      'karma-coverage'
     ],
 
     preprocessors: {
-      'src/**/*.html': ['ng-html2js']
+      'src/**/*.html': ['ng-html2js'],
+      './src/**/*!(.spec).js': ['coverage']
+    },
+
+    coverageReporter: {
+      type : 'lcov'
     }
   };
 
