@@ -9,7 +9,7 @@
   function mhNavbar() {
     var directive = {
       restrict: 'E',
-      templateUrl: '/app/components/navbar/navbar.html',
+      templateUrl: 'app/components/navbar/navbar.html',
       controller: NavbarController,
       controllerAs: 'navbar',
       scope: {

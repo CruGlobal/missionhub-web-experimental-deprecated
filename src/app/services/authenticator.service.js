@@ -15,7 +15,7 @@
     };
 
     function authenticate(provider){
-      $auth.authenticate(provider)
+      return $auth.authenticate(provider)
         .then(function() {
           $log.info("JWT Payload:", $auth.getPayload());
           $state.transitionTo("dashboard");

@@ -9,7 +9,7 @@
   function people() {
     var directive = {
       restrict: 'E',
-      templateUrl: '/app/components/people/people.html',
+      templateUrl: 'app/components/people/people.html',
       controller: PeopleController,
       controllerAs: 'people',
       scope: {

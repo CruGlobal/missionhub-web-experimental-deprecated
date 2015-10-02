@@ -4,6 +4,10 @@ var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
 
+var $ = require('gulp-load-plugins')({
+  pattern: ['gulp-*', 'main-bower-files']
+});
+
 var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
 
@@ -47,6 +51,12 @@ browserSync.use(browserSyncSpa({
 }));
 
 gulp.task('serve', ['watch'], function () {
+  // Copy Fonts for development - removes font awesome network request errors
+  gulp.src($.mainBowerFiles())
+    .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
+    .pipe($.flatten())
+    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/fonts/')));
+
   browserSyncInit([path.join(conf.paths.tmp, '/serve'), conf.paths.src]);
 });
 

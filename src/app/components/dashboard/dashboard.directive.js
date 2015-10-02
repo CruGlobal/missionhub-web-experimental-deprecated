@@ -9,7 +9,7 @@
   function dashboard() {
     var directive = {
       restrict: 'E',
-      templateUrl: '/app/components/dashboard/dashboard.html',
+      templateUrl: 'app/components/dashboard/dashboard.html',
       controller: DashboardController,
       controllerAs: 'dashboard',
       scope: {

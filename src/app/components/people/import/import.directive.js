@@ -9,7 +9,7 @@
   function peopleImport() {
     var directive = {
       restrict: 'E',
-      templateUrl: '/app/components/people/import/import.html',
+      templateUrl: 'app/components/people/import/import.html',
       controller: PeopleImportController,
       controllerAs: 'peopleImport',
       bindToController: true,

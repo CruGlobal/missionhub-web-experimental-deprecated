@@ -2,6 +2,8 @@
   'use strict';
 
   angular
-    .module('missionhub.welcome', []);
+    .module('missionhub.welcome', [
+      'angular-spinkit'
+    ]);
 
 })();
