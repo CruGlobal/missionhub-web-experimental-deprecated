@@ -3,10 +3,17 @@
     <div class="col-xs-12">
       <div class="panel panel-default">
         <div class="panel-body">
-          Import
-          <a href="javascript:;" lk-google-picker on-picked="peopleImport.onPicked" on-loaded="onLoaded" on-cancel="onCancel">Open my Google Drive</a>
+          <button class="btn btn-default" ng-click="peopleImport.chooseFiles()">Select sheets to upload</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  function onApiLoad() {
+    window.onApiLoad();
+  }
+</script>
+<!-- The Google API Loader script. -->
+<script type="text/javascript" src="https://apis.google.com/js/api.js?onload=onApiLoad"></script>

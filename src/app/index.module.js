@@ -20,7 +20,8 @@
       'missionhub.people',
 
       //app service modules
-      'missionhub.auth'
+      'missionhub.auth',
+      'missionhub.genericServices'
     ]);
 
 })();

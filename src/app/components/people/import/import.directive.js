@@ -21,9 +21,9 @@
     return directive;
 
     /** @ngInject */
-    function PeopleImportController() {
+    function PeopleImportController(googlePicker) {
       var vm = this;
-      vm.onPicked = onPicked;
+      vm.chooseFiles = chooseFiles;
 
       activate();
 
@@ -31,8 +31,11 @@
 
       }
 
-      function onPicked(docs) {
-        console.log(docs);
+      function chooseFiles() {
+        googlePicker.openPicker().then(function(files){
+          //TODO: fix promise
+          console.log('directive, files:', files);
+        });
       }
     }
   }

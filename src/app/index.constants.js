@@ -1,9 +1,10 @@
-/* global moment:false */
+/* global window:false */
 (function() {
   'use strict';
 
   angular
     .module('missionhub')
-    .constant('moment', moment);
+    .constant('moment', window.moment)
+    .constant('_', window._);
 
 })();

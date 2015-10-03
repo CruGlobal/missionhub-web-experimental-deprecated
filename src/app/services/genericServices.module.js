@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('missionhub.people.import', []);
+    .module('missionhub.genericServices', []);
 
 })();

@@ -11,8 +11,10 @@
       authenticate: authenticate,
       logout: logout,
       isAuthenticated: isAuthenticated,
+      getGoogleAccessToken: getGoogleAccessToken,
       initialize: initialize
     };
+    return factory;
 
     function authenticate(provider){
       return $auth.authenticate(provider)
@@ -34,6 +36,10 @@
       return $auth.isAuthenticated();
     }
 
+    function getGoogleAccessToken(){
+      return 'secret token'; //TODO: implement requesting this from server
+    }
+
     function initialize() {
       $rootScope.$on("$stateChangeStart", function (event, toState) {
         if (toState.authenticate && !factory.isAuthenticated()) {
@@ -43,8 +49,6 @@
         }
       });
     }
-
-    return factory;
   }
 
 })();
