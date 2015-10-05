@@ -24,6 +24,9 @@
     function PersonCardController($stateParams) {
       var vm = this;
       vm.personId = $stateParams.personId;
+      vm.showInteractions = true;
+      vm.showSurveys = true;
+      vm.showMessages = true;
 
       activate();
 

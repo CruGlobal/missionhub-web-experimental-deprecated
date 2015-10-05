@@ -76,11 +76,22 @@
                 <div class="row">
                   <h4 class="col-sm-6">Timeline</h4>
                   <div class="col-sm-6 text-right">
-                    Show
                     <div class="btn-group btn-group-sm">
-                      <button class="btn btn-default">Interactions</button>
-                      <button class="btn btn-default">Surveys</button>
-                      <button class="btn btn-default">Messages</button>
+                      <button class="btn" ng-class="{'btn-info': card.showInteractions, 'btn-default': !card.showInteractions}" btn-checkbox ng-model="card.showInteractions" ng-switch="card.showInteractions">
+                        <i class="fa fa-eye" ng-switch-when="true"></i>
+                        <i class="fa fa-eye-slash" ng-switch-when="false"></i>
+                        Interactions
+                      </button>
+                      <button class="btn" ng-class="{'btn-info': card.showSurveys, 'btn-default': !card.showSurveys}" btn-checkbox ng-model="card.showSurveys" ng-switch="card.showSurveys">
+                        <i class="fa fa-eye" ng-switch-when="true"></i>
+                        <i class="fa fa-eye-slash" ng-switch-when="false"></i>
+                        Surveys
+                      </button>
+                      <button class="btn" ng-class="{'btn-info': card.showMessages, 'btn-default': !card.showMessages}" btn-checkbox ng-model="card.showMessages" ng-switch="card.showMessages">
+                        <i class="fa fa-eye" ng-switch-when="true"></i>
+                        <i class="fa fa-eye-slash" ng-switch-when="false"></i>
+                        Messages
+                      </button>
                     </div>
                   </div>
                 </div>
