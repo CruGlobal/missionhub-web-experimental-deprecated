@@ -17,6 +17,10 @@
         url: '/import',
         template: '<people-import></people-import>',
         authenticate: true
+      }).state('people.card', {
+        url: '/:personId',
+        template: '<person-card></person-card>',
+        authenticate: true
       });
 
   }

@@ -8,8 +8,8 @@
   /** @ngInject */
   function runBlock($log, authenticator) {
 
-    $log.debug('runBlock end');
     authenticator.initialize();
+    $log.debug('runBlock end');
   }
 
 })();
