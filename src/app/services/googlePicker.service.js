@@ -1,3 +1,4 @@
+/* global google:false, gapi:false */
 (function() {
   'use strict';
 
@@ -51,10 +52,12 @@
         var urls = _.map(files, function(file){
           return file[google.picker.Document.URL];
         });
-        pickerPromise.resolve(urls); //TODO: fix promise
-        console.log('resolved', urls);
+        pickerPromise.resolve(urls);
+      }else if (data[google.picker.Response.ACTION] === google.picker.Action.LOADED) {
+        pickerPromise.notify({message: 'Picker Loaded'});
+      }else{
+        pickerPromise.reject({error: 'Response from the Google Picker was not the picked action. Instead it was the ' + data[google.picker.Response.ACTION] + ' action.'});
       }
-      pickerPromise.reject({error: 'Picker response was not the picked action'});
     }
   }
 

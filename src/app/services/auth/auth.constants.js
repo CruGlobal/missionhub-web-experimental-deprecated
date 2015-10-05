@@ -1,4 +1,3 @@
-/* global moment:false */
 (function() {
   'use strict';
 

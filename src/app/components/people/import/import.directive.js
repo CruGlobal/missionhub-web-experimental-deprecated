@@ -33,9 +33,11 @@
 
       function chooseFiles() {
         googlePicker.openPicker().then(function(files){
-          //TODO: fix promise
-          console.log('directive, files:', files);
-        });
+            console.log('picked files:', files);
+          },
+          function(reason){
+            console.log('Error picking files:', reason);
+          });
       }
     }
   }
