@@ -2,61 +2,41 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-default">
-        <div class="panel-body panel-body-people">
-          <div class="row">
-
-            <div class="col-sm-6">
-              <h3 class="panel-title">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-              </h3>
-            </div>
-            <div class="col-sm-6 text-right">
-              <a ui-sref="people.card({personId: 123})" class="btn btn-default">
-                View Person 123
-              </a>
-              <a ui-sref="people.import" class="btn btn-default">
-                Import
-              </a>
-              <button class="btn btn-default">
-                Export
-              </button>
-            </div>
+        <md-data-table-toolbar layout="row" layout-align="space-between">
+          <div flex>
+            <md-input-container md-no-float>
+              <ng-md-icon icon="search"></ng-md-icon>
+              <input ng-model="user.title" placeholder="Search">
+            </md-input-container>
           </div>
-        </div>
-        <div class="table-responsive">
-          <table class="table table-hover">
-            <thead>
+          <div>
+            <md-button ui-sref="people.import">Import</md-button>
+            <md-button ui-sref="people.export">Export</md-button>
+          </div>
+        </md-data-table-toolbar>
+
+        <md-data-table-container>
+          <table md-data-table md-row-select="people.selected" md-progress="deferred">
+            <thead md-order="people.query.order" md-trigger="onOrderChange">
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Phone</th>
-              <th>Status</th>
+              <th name="First" order-by="fname"></th>
+              <th name="Last" order-by="lname"></th>
+              <th name="Gender" order-by="gender"></th>
+              <th name="Status" order-by="status"></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>Fname</td>
-              <td>Lname</td>
-              <td>(123) 456-7890</td>
-              <td>Uncontacted</td>
-            </tr>
-            <tr>
-              <td>Fname</td>
-              <td>Lname</td>
-              <td>(123) 456-7890</td>
-              <td>Uncontacted</td>
-            </tr>
-            <tr>
-              <td>Fname</td>
-              <td>Lname</td>
-              <td>(123) 456-7890</td>
-              <td>Uncontacted</td>
+            <tr ui-sref="people.card({personId: 123})" ng-repeat="person in people.people track by $index">
+              <td>{{person.fname}}</td>
+              <td>{{person.lname}}</td>
+              <td>{{person.gender}}</td>
+              <td>{{person.status}}</td>
             </tr>
             </tbody>
           </table>
-        </div>
+        </md-data-table-container>
+
+        <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{desserts.total}}" md-trigger="onPaginationChange"></md-data-table-pagination>
       </div>
     </div>
   </div>

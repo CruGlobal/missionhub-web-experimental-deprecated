@@ -1,3 +1,7 @@
-.panel-body.panel-body-people{
-  padding: 5px;
+md-data-table-toolbar md-input-container{
+  padding-bottom: 0;
+}
+
+[md-table-row][ui-sref]{
+  cursor: pointer;
 }

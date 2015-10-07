@@ -11,6 +11,8 @@
       'restangular',
       'ui.router',
       'ui.bootstrap',
+      'ngMaterial',
+      'ngMdIcons',
       'satellizer',
 
       //app directive modules
