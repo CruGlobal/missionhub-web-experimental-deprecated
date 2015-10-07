@@ -8,7 +8,7 @@
   /** @ngInject */
   function config($authProvider, authKeys) {
     //Authentication Config
-    $authProvider.baseUrl = 'http://localhost:8080/api/v1/'; //TODO: base off of main aoi
+    $authProvider.baseUrl = 'http://localhost:3000/apis/v4/';
     $authProvider.withCredentials = false; //TODO: Remove if not needed in production. Enables wildcard in 'Access-Control-Allow-Origin'
 
     $authProvider.google({
@@ -17,7 +17,8 @@
     });
 
     $authProvider.facebook({
-      clientId: authKeys.facebook.clientId
+      clientId: authKeys.facebook.clientId,
+      url: 'sessions/?provider=facebook'
     });
   }
 
