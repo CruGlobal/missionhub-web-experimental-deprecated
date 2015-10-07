@@ -27,6 +27,36 @@
       vm.showInteractions = true;
       vm.showSurveys = true;
       vm.showMessages = true;
+      vm.person = {
+        fname: 'Scotty',
+        lname: 'Wagggoner',
+        role: 'Intern',
+        gender:'Male',
+        emails: [
+          {
+            type: 'Home',
+            address: 'my.home.email@gmail.com',
+            primary: true
+          },
+          {
+            type: 'Work',
+            address: 'my.work.email@cru.org',
+            primary: false
+          }
+        ],
+        phones: [
+          {
+            type: 'Home',
+            number: '1234567890',
+            primary: true
+          },
+          {
+            type: 'Mobile',
+            number: '0987654321',
+            primary: false
+          }
+        ]
+      };
 
       activate();
 

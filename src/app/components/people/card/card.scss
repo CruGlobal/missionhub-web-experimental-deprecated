@@ -1,0 +1,24 @@
+person-card .page-header {
+  margin: 2em 0 1em;
+  h4 {
+    margin-bottom: 0;
+  }
+}
+
+person-card .profile-picture{
+  margin-right: 1em;
+}
+
+h1 md-input-container {
+  padding-bottom: 0;
+}
+
+md-input-container .jumbo-input{
+  width: 100%;
+}
+
+.md-button.md-button-sm{
+  font-size: 10px;
+  min-height: 26px;
+  line-height: 26px;
+}

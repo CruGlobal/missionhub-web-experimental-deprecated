@@ -1,156 +1,188 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-sm-2">
-              <img src="https://graph.facebook.com/v2.2/704802237/picture?width=100&height=100" alt="Profile Picture for Scotty Waggoner">
-            </div>
-            <div class="col-sm-10">
-              <div class="row">
-                <div class="col-sm-6">
-                  <h1>Scotty Waggoner</h1>
-                </div>
-                <div class="col-sm-6 text-right">
-                  <span class="label label-default">Leader</span>
-                  <span class="label label-default">Involved</span>
-                  <span class="label label-default">Some Bible Study</span>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-4">
-                  <small class="text-muted">Cru Role:</small> Full Time Supported Staff
-                </div>
-                <div class="col-sm-4 text-center">
-                  <small class="text-muted">Enrollment:</small> Masters/Doctorate
-                </div>
-                <div class="col-sm-4 text-right">
-                  <small class="text-muted">Gender:</small> Male
-                </div>
-              </div>
-            </div>
+<md-card>
+  <md-card-content>
+    <div layout="row">
+      <span><img class="profile-picture" src="https://graph.facebook.com/v2.2/704802237/picture?width=100&height=100" alt="Profile Picture for Scotty Waggoner"></span>
+      <div layout="column">
+        <div layout="column" layout-gt-md="row">
+          <div layout="row">
+            <h1>
+              <md-input-container md-no-float>
+                <input class="jumbo-input" type="text" ng-model="card.person.fname" placeholder="First Name">
+              </md-input-container>
+            </h1>
+            <h1>
+              <md-input-container md-no-float>
+                <input class="jumbo-input" type="text" ng-model="card.person.lname" placeholder="Last Name">
+              </md-input-container>
+            </h1>
           </div>
-
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="page-header">
-                <h4>Contact Info</h4>
-              </div>
-            </div>
+          <div>
+            <span class="label label-default">Leader</span>
+            <span class="label label-default">Involved</span>
+            <span class="label label-default">Some Bible Study</span>
           </div>
+        </div>
 
-          <div class="row">
-            <div class="col-sm-6">
-              <section>
-                <h6>Email</h6>
-                <p>my.home.email@gmail.com <span class="label label-default">Home</span> <span class="label label-primary">Primary</span></p>
-                <p>my.work.email@cru.org <span class="label label-default">Work</span></p>
-              </section>
-              <section>
-                <h6>Phone</h6>
-                <p>(123) 456-7890 <span class="label label-default">Mobile</span> <span class="label label-primary">Primary</span></p>
-                <p>(098) 765-4321 <span class="label label-default">Home</span></p>
-              </section>
-
-
-            </div>
-            <div class="col-sm-6">
-              <section>
-                <h6>Address</h6>
-                <address>
-                  <span class="label label-default">Home</span> <span class="label label-primary">Primary</span><br>
-                  123 First St<br>
-                  Apt 45<br>
-                  Some City, FL 12345
-                </address>
-              </section>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="page-header">
-                <div class="row">
-                  <h4 class="col-sm-6">Timeline</h4>
-                  <div class="col-sm-6 text-right">
-                    <div class="btn-group btn-group-sm">
-                      <button class="btn" ng-class="{'btn-info': card.showInteractions, 'btn-default': !card.showInteractions}" btn-checkbox ng-model="card.showInteractions" ng-switch="card.showInteractions">
-                        <i class="fa fa-eye" ng-switch-when="true"></i>
-                        <i class="fa fa-eye-slash" ng-switch-when="false"></i>
-                        Interactions
-                      </button>
-                      <button class="btn" ng-class="{'btn-info': card.showSurveys, 'btn-default': !card.showSurveys}" btn-checkbox ng-model="card.showSurveys" ng-switch="card.showSurveys">
-                        <i class="fa fa-eye" ng-switch-when="true"></i>
-                        <i class="fa fa-eye-slash" ng-switch-when="false"></i>
-                        Surveys
-                      </button>
-                      <button class="btn" ng-class="{'btn-info': card.showMessages, 'btn-default': !card.showMessages}" btn-checkbox ng-model="card.showMessages" ng-switch="card.showMessages">
-                        <i class="fa fa-eye" ng-switch-when="true"></i>
-                        <i class="fa fa-eye-slash" ng-switch-when="false"></i>
-                        Messages
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <ul class="timeline">
-            <li>
-              <div class="timeline-badge primary"><i class="fa fa-users"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Spiritual Conversation <small>with Anonymous Cru Staff</small></h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 20 mins ago - Visible to everyone in Cru Hackathon - Created by Some Other Cru Staff</small></p>
-                </div>
-                <div class="timeline-body">
-                  <p>
-                    Had a very long conversation about something important.
-                  </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-badge danger"><i class="fa fa-envelope"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Email <small>from Anonymous Cru Staff</small></h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 1 hr ago - Visible to everyone in Cru Hackathon</small></p>
-                </div>
-                <div class="timeline-body">
-                  <p>Hey Scotty,</p>
-                  <p>Please come to our event.</p>
-                  <p>Thanks!</p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-badge warning"><i class="fa fa-list-alt"></i></div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Completed Survey <small>Welcome Week Survey</small></h4>
-                  <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2 days ago - Visible to everyone in Cru Hackathon</small></p>
-                </div>
-                <div class="timeline-body">
-                  <dl class="dl-horizontal">
-                    <dt>Dorm Area</dt>
-                    <dd>Tercero</dd>
-                    <dt>Year</dt>
-                    <dd>Senior</dd>
-                    <dt>Spiritual Background</dt>
-                    <dd>Christian</dd>
-                  </dl>
-                </div>
-              </div>
-            </li>
-          </ul>
-
+        <div layout="row" layout-align="space-between">
+          <md-input-container>
+            <label>Role</label>
+            <md-select ng-model="card.person.role">
+              <md-optgroup label="Cru Position">
+                <md-option ng-value="role" ng-repeat="role in ['Full Time Supported Staff', 'Part Time Field Staff', 'Intern', 'Affiliate', 'Volunteer']">{{role}}</md-option>
+              </md-optgroup>
+              <md-optgroup label="Campus">
+                <md-option ng-value="role" ng-repeat="role in ['Student Leader', 'Event Team']">{{role}}</md-option>
+              </md-optgroup>
+            </md-select>
+          </md-input-container>
+          <!--<small class="text-muted">Enrollment:</small> Masters/Doctorate-->
+          <md-input-container>
+            <label>Gender</label>
+            <md-select ng-model="card.person.gender">
+              <md-option ng-value="gender" ng-repeat="gender in ['Male', 'Female']">{{gender}}</md-option>
+            </md-select>
+          </md-input-container>
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <div class="page-header">
+      <h4>Contact Info</h4>
+    </div>
+
+    <div flex layout="row">
+      <div flex layout="column">
+        <section>
+          <h6>Emails</h6>
+          <div layout="row" layout-align="start center" ng-repeat="email in card.person.emails">
+            <md-input-container flex="15">
+              <label>Type</label>
+              <md-select ng-model="email.type">
+                <md-option ng-value="type" ng-repeat="type in ['Home', 'Work', 'Other']">{{type}}</md-option>
+              </md-select>
+            </md-input-container>
+            <md-input-container flex>
+              <label>Email</label>
+              <input type="email" ng-model="email.address">
+            </md-input-container>
+            <md-button class="md-button-sm md-accent" ng-disabled="email.primary" ng-click="email.primary = !email.primary" ng-switch="email.primary" aria-label="Make primary or show as primary">
+              <span ng-switch-when="false">Make Primary</span>
+              <span ng-switch-when="true">Primary</span>
+            </md-button>
+          </div>
+        </section>
+        <section>
+          <h6>Phone Numbers</h6>
+          <div layout="row" layout-align="start center" ng-repeat="phone in card.person.phones">
+            <md-input-container flex="15">
+              <label>Type</label>
+              <md-select ng-model="phone.type">
+                <md-option ng-value="type" ng-repeat="type in ['Home', 'Mobile', 'Other']">{{type}}</md-option>
+              </md-select>
+            </md-input-container>
+            <md-input-container flex>
+              <label>Number</label>
+              <input type="tel" phone-input ng-model="phone.number">
+            </md-input-container>
+            <md-button class="md-button-sm md-accent" ng-disabled="phone.primary" ng-click="phone.primary = !phone.primary" ng-switch="phone.primary" aria-label="Make primary or show as primary">
+              <span ng-switch-when="false">Make Primary</span>
+              <span ng-switch-when="true">Primary</span>
+            </md-button>
+          </div>
+        </section>
+
+
+      </div>
+      <div flex layout="column">
+        <section>
+          <h6>Address</h6>
+          <address>
+            <span class="label label-default">Home</span> <span class="label label-primary">Primary</span><br>
+            123 First St<br>
+            Apt 45<br>
+            Some City, FL 12345
+          </address>
+        </section>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="page-header">
+          <div class="row">
+            <h4 class="col-sm-6">Timeline</h4>
+            <div class="col-sm-6 text-right">
+              <div class="btn-group btn-group-sm">
+                <button class="btn" ng-class="{'btn-info': card.showInteractions, 'btn-default': !card.showInteractions}" btn-checkbox ng-model="card.showInteractions" ng-switch="card.showInteractions">
+                  <i class="fa fa-eye" ng-switch-when="true"></i>
+                  <i class="fa fa-eye-slash" ng-switch-when="false"></i>
+                  Interactions
+                </button>
+                <button class="btn" ng-class="{'btn-info': card.showSurveys, 'btn-default': !card.showSurveys}" btn-checkbox ng-model="card.showSurveys" ng-switch="card.showSurveys">
+                  <i class="fa fa-eye" ng-switch-when="true"></i>
+                  <i class="fa fa-eye-slash" ng-switch-when="false"></i>
+                  Surveys
+                </button>
+                <button class="btn" ng-class="{'btn-info': card.showMessages, 'btn-default': !card.showMessages}" btn-checkbox ng-model="card.showMessages" ng-switch="card.showMessages">
+                  <i class="fa fa-eye" ng-switch-when="true"></i>
+                  <i class="fa fa-eye-slash" ng-switch-when="false"></i>
+                  Messages
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="timeline">
+      <li>
+        <div class="timeline-badge primary"><i class="fa fa-users"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Spiritual Conversation <small>with Anonymous Cru Staff</small></h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 20 mins ago - Visible to everyone in Cru Hackathon - Created by Some Other Cru Staff</small></p>
+          </div>
+          <div class="timeline-body">
+            <p>
+              Had a very long conversation about something important.
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="timeline-inverted">
+        <div class="timeline-badge danger"><i class="fa fa-envelope"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Email <small>from Anonymous Cru Staff</small></h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 1 hr ago - Visible to everyone in Cru Hackathon</small></p>
+          </div>
+          <div class="timeline-body">
+            <p>Hey Scotty,</p>
+            <p>Please come to our event.</p>
+            <p>Thanks!</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="timeline-badge warning"><i class="fa fa-list-alt"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">Completed Survey <small>Welcome Week Survey</small></h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 2 days ago - Visible to everyone in Cru Hackathon</small></p>
+          </div>
+          <div class="timeline-body">
+            <dl class="dl-horizontal">
+              <dt>Dorm Area</dt>
+              <dd>Tercero</dd>
+              <dt>Year</dt>
+              <dd>Senior</dd>
+              <dt>Spiritual Background</dt>
+              <dd>Christian</dd>
+            </dl>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </md-card-content>
+</md-card>

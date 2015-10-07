@@ -21,6 +21,9 @@
       'missionhub.dashboard',
       'missionhub.people',
 
+      //Filters
+      'missionhub.filters',
+
       //app service modules
       'missionhub.auth',
       'missionhub.genericServices'
