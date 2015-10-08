@@ -77,7 +77,7 @@
             <md-input-container flex="15">
               <label>Type</label>
               <md-select ng-model="phone.type">
-                <md-option ng-value="type" ng-repeat="type in ['Home', 'Mobile', 'Other']">{{type}}</md-option>
+                <md-option ng-value="type" ng-repeat="type in ['Home', 'Mobile', 'Work', 'Other']">{{type}}</md-option>
               </md-select>
             </md-input-container>
             <md-input-container flex>
@@ -95,14 +95,44 @@
       </div>
       <div flex layout="column">
         <section>
-          <h6>Address</h6>
-          <address>
-            <span class="label label-default">Home</span> <span class="label label-primary">Primary</span><br>
-            123 First St<br>
-            Apt 45<br>
-            Some City, FL 12345
-          </address>
-        </section>
+        <h6>Addresses</h6>
+        <address layout="row" layout-align="start start" ng-repeat="address in card.person.addresses">
+          <md-input-container flex="15">
+            <label>Type</label>
+            <md-select ng-model="address.type">
+              <md-option ng-value="type" ng-repeat="type in ['Home', 'Work', 'Other']">{{type}}</md-option>
+            </md-select>
+          </md-input-container>
+          <div layout="column">
+            <md-input-container flex>
+              <label>Address</label>
+              <input type="text" ng-model="address.address">
+            </md-input-container>
+            <md-input-container flex>
+              <label>Address Line 2</label>
+              <input type="text" ng-model="address.address2">
+            </md-input-container>
+            <div layout="row">
+              <md-input-container flex>
+                <label>City</label>
+                <input type="text" ng-model="address.city">
+              </md-input-container>
+              <md-input-container flex>
+                <label>State</label>
+                <input type="text" ng-model="address.state">
+              </md-input-container>
+              <md-input-container flex>
+                <label>Zip</label>
+                <input type="text" ng-model="address.zip">
+              </md-input-container>
+            </div>
+          </div>
+          <md-button class="md-button-sm md-accent" ng-disabled="address.primary" ng-click="address.primary = !address.primary" ng-switch="address.primary" aria-label="Make primary or show as primary">
+            <span ng-switch-when="false">Make Primary</span>
+            <span ng-switch-when="true">Primary</span>
+          </md-button>
+        </address>
+      </section>
       </div>
     </div>
 

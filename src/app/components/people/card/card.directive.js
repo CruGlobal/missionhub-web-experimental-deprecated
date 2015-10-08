@@ -55,6 +55,17 @@
             number: '0987654321',
             primary: false
           }
+        ],
+        addresses: [
+          {
+            type: 'Home',
+            address: '123 Something St',
+            address2: 'Apt 234',
+            city: "My City",
+            state: 'CA',
+            zip: 12345,
+            primary: true
+          }
         ]
       };
 
