@@ -50,7 +50,7 @@
       <h4>Contact Info</h4>
     </div>
 
-    <div flex layout="row">
+    <div flex layout="column" layout-gt-md="row">
       <div flex layout="column">
         <section>
           <h6>Emails</h6>
@@ -63,12 +63,23 @@
             </md-input-container>
             <md-input-container flex>
               <label>Email</label>
-              <input type="email" ng-model="email.address">
+              <input type="email" ng-model="email.address" focus-if="email.autoFocus">
             </md-input-container>
-            <md-button class="md-button-sm md-accent" ng-disabled="email.primary" ng-click="email.primary = !email.primary" ng-switch="email.primary" aria-label="Make primary or show as primary">
-              <span ng-switch-when="false">Make Primary</span>
-              <span ng-switch-when="true">Primary</span>
+            <md-button class="md-icon-button md-accent" ng-disabled="email.primary" ng-click="email.primary = !email.primary" ng-switch="email.primary" aria-label="Make primary or show as primary">
+              <span ng-switch-when="false"><ng-md-icon icon="radio_button_off"></ng-md-icon></span>
+              <span ng-switch-when="true"><ng-md-icon icon="radio_button_on"></ng-md-icon></span>
+              <md-tooltip>
+                Make Primary
+              </md-tooltip>
             </md-button>
+            <md-button class="md-icon-button md-warn" aria-label="Remove Email" ng-click="card.removeEmail($index)">
+              <ng-md-icon icon="close"></ng-md-icon>
+            </md-button>
+          </div>
+          <div layout="row" layout-align="start center">
+            <md-input-container flex="70" offset="15" md-no-float>
+              <input type="email" ng-change="card.addEmail()" ng-model="card.newEmail" placeholder="Add Email" ng-model-options="{allowInvalid: true}">
+            </md-input-container>
           </div>
         </section>
         <section>
@@ -103,7 +114,7 @@
               <md-option ng-value="type" ng-repeat="type in ['Home', 'Work', 'Other']">{{type}}</md-option>
             </md-select>
           </md-input-container>
-          <div layout="column">
+          <div layout="column" flex>
             <md-input-container flex>
               <label>Address</label>
               <input type="text" ng-model="address.address">

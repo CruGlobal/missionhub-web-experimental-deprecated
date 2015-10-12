@@ -2,6 +2,8 @@
   'use strict';
 
   angular
-    .module('missionhub.people.card', []);
+    .module('missionhub.people.card', [
+      'focus-if'
+    ]);
 
 })();
