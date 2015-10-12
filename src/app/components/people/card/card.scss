@@ -9,12 +9,12 @@ person-card .profile-picture{
   margin-right: 1em;
 }
 
-h1 md-input-container {
+h1 > md-input-container {
   padding-bottom: 0;
-}
-
-md-input-container .jumbo-input{
-  width: 100%;
+  > .md-input{
+    width: 100%;
+    line-height: 56px;
+  }
 }
 
 .md-button.md-button-sm{
