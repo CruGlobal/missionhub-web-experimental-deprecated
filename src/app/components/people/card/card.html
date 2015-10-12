@@ -52,98 +52,11 @@
 
     <div flex layout="column" layout-gt-md="row">
       <div flex layout="column">
-        <section>
-          <h6>Emails</h6>
-          <div layout="row" layout-align="start center" ng-repeat="email in card.person.emails">
-            <md-input-container flex="15">
-              <label>Type</label>
-              <md-select ng-model="email.type">
-                <md-option ng-value="type" ng-repeat="type in ['Home', 'Work', 'Other']">{{type}}</md-option>
-              </md-select>
-            </md-input-container>
-            <md-input-container flex>
-              <label>Email</label>
-              <input type="email" ng-model="email.address" focus-if="email.autoFocus">
-            </md-input-container>
-            <md-button class="md-icon-button md-accent" ng-disabled="email.primary" ng-click="email.primary = !email.primary" ng-switch="email.primary" aria-label="Make primary or show as primary">
-              <span ng-switch-when="false"><ng-md-icon icon="radio_button_off"></ng-md-icon></span>
-              <span ng-switch-when="true"><ng-md-icon icon="radio_button_on"></ng-md-icon></span>
-              <md-tooltip>
-                Make Primary
-              </md-tooltip>
-            </md-button>
-            <md-button class="md-icon-button md-warn" aria-label="Remove Email" ng-click="card.removeEmail($index)">
-              <ng-md-icon icon="close"></ng-md-icon>
-            </md-button>
-          </div>
-          <div layout="row" layout-align="start center">
-            <md-input-container flex="70" offset="15" md-no-float>
-              <input type="email" ng-change="card.addEmail()" ng-model="card.newEmail" placeholder="Add Email" ng-model-options="{allowInvalid: true}">
-            </md-input-container>
-          </div>
-        </section>
-        <section>
-          <h6>Phone Numbers</h6>
-          <div layout="row" layout-align="start center" ng-repeat="phone in card.person.phones">
-            <md-input-container flex="15">
-              <label>Type</label>
-              <md-select ng-model="phone.type">
-                <md-option ng-value="type" ng-repeat="type in ['Home', 'Mobile', 'Work', 'Other']">{{type}}</md-option>
-              </md-select>
-            </md-input-container>
-            <md-input-container flex>
-              <label>Number</label>
-              <input type="tel" phone-input ng-model="phone.number">
-            </md-input-container>
-            <md-button class="md-button-sm md-accent" ng-disabled="phone.primary" ng-click="phone.primary = !phone.primary" ng-switch="phone.primary" aria-label="Make primary or show as primary">
-              <span ng-switch-when="false">Make Primary</span>
-              <span ng-switch-when="true">Primary</span>
-            </md-button>
-          </div>
-        </section>
-
-
+        <contact-info title="Emails" label="Email" data="card.person.emails" types="['Home', 'Work', 'Other']"></contact-info>
+        <contact-info title="Phone Numbers" label="Phone Number" data="card.person.phones" types="['Home', 'Mobile', 'Work', 'Other']"></contact-info>
       </div>
       <div flex layout="column">
-        <section>
-        <h6>Addresses</h6>
-        <address layout="row" layout-align="start start" ng-repeat="address in card.person.addresses">
-          <md-input-container flex="15">
-            <label>Type</label>
-            <md-select ng-model="address.type">
-              <md-option ng-value="type" ng-repeat="type in ['Home', 'Work', 'Other']">{{type}}</md-option>
-            </md-select>
-          </md-input-container>
-          <div layout="column" flex>
-            <md-input-container flex>
-              <label>Address</label>
-              <input type="text" ng-model="address.address">
-            </md-input-container>
-            <md-input-container flex>
-              <label>Address Line 2</label>
-              <input type="text" ng-model="address.address2">
-            </md-input-container>
-            <div layout="row">
-              <md-input-container flex>
-                <label>City</label>
-                <input type="text" ng-model="address.city">
-              </md-input-container>
-              <md-input-container flex>
-                <label>State</label>
-                <input type="text" ng-model="address.state">
-              </md-input-container>
-              <md-input-container flex>
-                <label>Zip</label>
-                <input type="text" ng-model="address.zip">
-              </md-input-container>
-            </div>
-          </div>
-          <md-button class="md-button-sm md-accent" ng-disabled="address.primary" ng-click="address.primary = !address.primary" ng-switch="address.primary" aria-label="Make primary or show as primary">
-            <span ng-switch-when="false">Make Primary</span>
-            <span ng-switch-when="true">Primary</span>
-          </md-button>
-        </address>
-      </section>
+        <contact-info title="Addresses" label="Address" data="card.person.addresses" types="['Home', 'Work', 'Other']"></contact-info>
       </div>
     </div>
 

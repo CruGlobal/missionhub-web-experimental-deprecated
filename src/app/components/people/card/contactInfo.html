@@ -1,0 +1,47 @@
+<section>
+  <h6>{{contactInfo.title}}</h6>
+  <div layout="row" layout-align="start start" ng-repeat="info in contactInfo.data" ng-switch="contactInfo.label">
+    <md-input-container flex="15" md-no-float>
+      <md-select ng-model="info.type" aria-label="{{contactInfo.label}} Type">
+        <md-option ng-value="type" ng-repeat="type in contactInfo.types">{{type}}</md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex md-no-float ng-switch-when="Email">
+      <input type="email" ng-model="info.address" focus-if="info.autoFocus" placeholder="{{contactInfo.label}}">
+    </md-input-container>
+    <md-input-container flex md-no-float ng-switch-when="Phone Number">
+      <input type="tel" phone-input ng-model="info.number" focus-if="info.autoFocus" placeholder="{{contactInfo.label}}">
+    </md-input-container>
+    <div ng-switch-when="Address" layout="column" flex>
+      <md-input-container flex md-no-float>
+        <input type="text" ng-model="info.address" placeholder="Address" focus-if="info.autoFocus">
+      </md-input-container>
+      <md-input-container flex md-no-float>
+        <input type="text" ng-model="info.address2" placeholder="Address Line 2">
+      </md-input-container>
+      <div layout="row">
+        <md-input-container flex="50" md-no-float>
+          <input type="text" ng-model="info.city" placeholder="City">
+        </md-input-container>
+        <md-input-container flex="20" md-no-float>
+          <input type="text" ng-model="info.state" placeholder="State">
+        </md-input-container>
+        <md-input-container flex="30" md-no-float>
+          <input type="text" ng-model="info.zip" placeholder="Zip">
+        </md-input-container>
+      </div>
+    </div>
+    <md-button class="md-accent md-button-sm" ng-disabled="info.primary" ng-click="info.primary = !info.primary" ng-switch="info.primary" aria-label="Make primary or show as primary">
+      <span ng-switch-when="false">Make Primary</span>
+      <span ng-switch-when="true">Primary</span>
+    </md-button>
+    <md-button class="md-icon-button md-warn" aria-label="Remove {{contactInfo.label}}" ng-click="contactInfo.removeInfo($index)">
+      <ng-md-icon icon="close"></ng-md-icon>
+    </md-button>
+  </div>
+  <div layout="row">
+    <md-input-container flex="65" offset="15" md-no-float>
+      <input type="email" ng-change="contactInfo.addInfo()" ng-model="contactInfo.newInfo" placeholder="Add {{contactInfo.label}}" ng-model-options="{allowInvalid: true}">
+    </md-input-container>
+  </div>
+</section>
