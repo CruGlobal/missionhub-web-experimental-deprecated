@@ -3,7 +3,7 @@
 
   angular
     .module('missionhub.people.card', [
-      'focus-if'
+      'missionhub.utils'
     ]);
 
 })();

@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('missionhub.filters')
+    .module('missionhub.utils')
     .directive('phoneInput', phoneInput);
 
   /** @ngInject */

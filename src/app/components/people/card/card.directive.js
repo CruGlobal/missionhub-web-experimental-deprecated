@@ -37,7 +37,7 @@
       }
 
       function labelSearch(query){
-        if(query === ''){
+        if(query === '' || query === null){
           return allLabels;
         }
         query = query.toLowerCase();

@@ -9,7 +9,7 @@
   function contactInfo() {
     var directive = {
       restrict: 'E',
-      templateUrl: 'app/components/people/card/contactInfo.html',
+      templateUrl: 'app/components/people/card/contactInfo/contactInfo.html',
       controller: ContactInfoController,
       controllerAs: 'contactInfo',
       bindToController: true,
