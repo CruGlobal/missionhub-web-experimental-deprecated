@@ -21,15 +21,14 @@
     return directive;
 
     /** @ngInject */
-    function PersonCardController($stateParams) {
+    function PersonCardController($stateParams, _) {
       var vm = this;
       vm.personId = $stateParams.personId;
       vm.showInteractions = true;
       vm.showSurveys = true;
       vm.showMessages = true;
       vm.person = getPerson();
-      vm.addEmail = addEmail;
-      vm.removeEmail = removeEmail;
+      vm.labelSearch = labelSearch;
 
       activate();
 
@@ -37,20 +36,28 @@
 
       }
 
-      function addEmail(){
-        console.log("adding email", vm.newEmail);
-        vm.person.emails.push({
-          type: 'Home',
-          address: vm.newEmail,
-          primary: false,
-          autoFocus: true
+      function labelSearch(query){
+        if(query === ''){
+          return allLabels;
+        }
+        query = query.toLowerCase();
+        return _.filter(allLabels, function(label){
+          return fuzzyMatch(label.toLowerCase(), query);
         });
-        vm.newEmail = '';
       }
 
-      function removeEmail(index){
-        vm.person.emails.splice(index, 1);
+      function fuzzyMatch(str,pattern){
+        pattern = pattern.split("").reduce(function(a,b){ return a+'[^'+b+']*'+b; });
+        return (new RegExp(pattern)).test(str);
       }
+
+      var allLabels = [
+        'Involved',
+        'Engaged Disciple',
+        'Leader',
+        'Some Bible Study',
+        'Worship Leader'
+      ];
 
       function getPerson(){
         return {
@@ -92,6 +99,11 @@
               zip: 12345,
               primary: true
             }
+          ],
+          labels: [
+            'Leader',
+            'Involved',
+            'Some Bible Study'
           ]
         }
       }
