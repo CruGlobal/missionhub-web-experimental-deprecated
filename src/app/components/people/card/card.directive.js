@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function PersonCardController($stateParams, _) {
+    function PersonCardController($stateParams, _, moment) {
       var vm = this;
       vm.personId = $stateParams.personId;
       vm.showInteractions = true;
@@ -105,6 +105,46 @@
             'Leader',
             'Involved',
             'Some Bible Study'
+          ],
+          events: [
+            {
+              type: 'Spiritual Conversation',
+              comment: 'Had a very long conversation about something important.',
+              initiator: 'Anonymous Cru Staff',
+              creator: 'Some Other Cru Staff',
+              time:  moment().subtract(20, 'minutes').fromNow(),
+              org: 'Cru Hackathon'
+            },
+            {
+              type: 'Email',
+              emailBody: '<p>Hey Scotty,</p>\
+              <p>Please come to our event.</p>\
+              <p>Thanks!</p>',
+              initiator: 'Anonymous Cru Staff',
+              time:  moment().subtract(1, 'hour').fromNow(),
+              org: 'Cru Hackathon'
+            },
+            {
+              type: 'Completed Survey',
+              answers: [],
+              initiator: 'Anonymous Cru Staff',
+              time:  moment().subtract(2, 'days').fromNow(),
+              org: 'Cru Hackathon',
+              survey: [
+                {
+                  question: 'Dorm Area',
+                  answer: 'Tercero'
+                },
+                {
+                  question: 'Year',
+                  answer: 'Senior'
+                },
+                {
+                  question: 'Spiritual Background',
+                  answer: 'Christian'
+                }
+              ]
+            }
           ]
         }
       }

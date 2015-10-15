@@ -3,7 +3,8 @@
 
   angular
     .module('missionhub.people.card', [
-      'missionhub.utils'
+      'missionhub.utils',
+      'angular-timeline'
     ]);
 
 })();
