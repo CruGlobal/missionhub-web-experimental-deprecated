@@ -29,7 +29,12 @@
               </md-optgroup>
             </md-select>
           </md-input-container>
-          <!--<small class="text-muted">Enrollment:</small> Masters/Doctorate-->
+          <md-input-container>
+            <label>Enrollment</label>
+            <md-select ng-model="card.person.enrollment">
+              <md-option ng-value="enrollment" ng-repeat="enrollment in ['Middle School', 'High School', 'Collegiate', 'Masters/Doctorate']">{{enrollment}}</md-option>
+            </md-select>
+          </md-input-container>
           <md-input-container>
             <label>Gender</label>
             <md-select ng-model="card.person.gender">

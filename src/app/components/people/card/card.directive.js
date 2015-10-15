@@ -64,6 +64,7 @@
           fname: 'Scotty',
           lname: 'Wagggoner',
           role: 'Intern',
+          enrollment: 'Masters/Doctorate',
           gender:'Male',
           emails: [
             {
