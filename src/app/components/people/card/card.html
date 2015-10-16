@@ -66,49 +66,38 @@
       </md-chip-template>
     </md-chips>
 
-    <div class="page-header">
-      <h4>Contact Info</h4>
-    </div>
-
     <div flex layout="column" layout-gt-md="row">
       <div flex layout="column">
+        <div class="page-header">
+          <h4>Contact Info</h4>
+        </div>
         <contact-info title="Emails" label="Email" data="card.person.emails" types="['Home', 'Work', 'Other']"></contact-info>
         <contact-info title="Phone Numbers" label="Phone Number" data="card.person.phones" types="['Home', 'Mobile', 'Work', 'Other']"></contact-info>
-      </div>
-      <div flex layout="column">
         <contact-info title="Addresses" label="Address" data="card.person.addresses" types="['Home', 'Work', 'Other']"></contact-info>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="page-header">
-          <div class="row">
-            <h4 class="col-sm-6">Timeline</h4>
-            <div class="col-sm-6 text-right">
-              <div class="btn-group btn-group-sm">
-                <button class="btn" ng-class="{'btn-info': card.showInteractions, 'btn-default': !card.showInteractions}" btn-checkbox ng-model="card.showInteractions" ng-switch="card.showInteractions">
-                  <i class="fa fa-eye" ng-switch-when="true"></i>
-                  <i class="fa fa-eye-slash" ng-switch-when="false"></i>
-                  Interactions
-                </button>
-                <button class="btn" ng-class="{'btn-info': card.showSurveys, 'btn-default': !card.showSurveys}" btn-checkbox ng-model="card.showSurveys" ng-switch="card.showSurveys">
-                  <i class="fa fa-eye" ng-switch-when="true"></i>
-                  <i class="fa fa-eye-slash" ng-switch-when="false"></i>
-                  Surveys
-                </button>
-                <button class="btn" ng-class="{'btn-info': card.showMessages, 'btn-default': !card.showMessages}" btn-checkbox ng-model="card.showMessages" ng-switch="card.showMessages">
-                  <i class="fa fa-eye" ng-switch-when="true"></i>
-                  <i class="fa fa-eye-slash" ng-switch-when="false"></i>
-                  Messages
-                </button>
-              </div>
-            </div>
+      <div flex layout="column">
+        <div class="page-header" layout="row" layout-align="space-between">
+          <h4>Timeline</h4>
+          <div>
+            <md-button class="md-accent md-button-sm md-button-header" ng-class="{'md-raised': card.showInteractions}" ng-click="card.showInteractions = !card.showInteractions" ng-switch="card.showInteractions" aria-label="Show/Hide">
+              <ng-md-icon ng-switch-when="true" icon="visibility" size="10"></ng-md-icon>
+              <ng-md-icon ng-switch-when="false" icon="visibility_off" size="10"></ng-md-icon>
+              Interactions
+            </md-button>
+            <md-button class="md-accent md-button-sm md-button-header" ng-class="{'md-raised': card.showSurveys}" ng-click="card.showSurveys = !card.showSurveys" ng-switch="card.showSurveys" aria-label="Show/Hide">
+              <ng-md-icon ng-switch-when="true" icon="visibility" size="10"></ng-md-icon>
+              <ng-md-icon ng-switch-when="false" icon="visibility_off" size="10"></ng-md-icon>
+              Surveys
+            </md-button>
+            <md-button class="md-accent md-button-sm md-button-header" ng-class="{'md-raised': card.showMessages}" ng-click="card.showMessages = !card.showMessages" ng-switch="card.showMessages" aria-label="Show/Hide">
+              <ng-md-icon ng-switch-when="true" icon="visibility" size="10"></ng-md-icon>
+              <ng-md-icon ng-switch-when="false" icon="visibility_off" size="10"></ng-md-icon>
+              Messages
+            </md-button>
           </div>
         </div>
+        <card-timeline events="card.person.events"></card-timeline>
       </div>
     </div>
-
-    <card-timeline events="card.person.events"></card-timeline>
   </md-card-content>
 </md-card>

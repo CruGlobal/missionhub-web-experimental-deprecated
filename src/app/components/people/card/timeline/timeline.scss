@@ -1,3 +1,59 @@
-.timeline li timeline-badge{
-  line-height: 46px;
+$top: 35px;
+
+.timeline-badge {
+  .badge-day {
+    font-size: 20px;
+    line-height: 22px;
+    padding-top: 6px;
+  }
+
+  .badge-month {
+    font-size: 13px;
+    line-height: 14px;
+    text-transform: uppercase;
+  }
+}
+
+timeline[timeline-left]{
+  ul.timeline li .timeline-panel {
+    width: calc(100% - 85px);
+    width: -moz-calc(100% - 85px);
+    width: -webkit-calc(100% - 85px);
+  }
+
+  ul.timeline:before {
+    left: 40px;
+  }
+
+  ul.timeline li timeline-panel {
+    width: calc(100% - 85px);
+    width: -moz-calc(100% - 85px);
+    width: -webkit-calc(100% - 85px);
+  }
+
+  ul.timeline li timeline-badge {
+    left: 15px;
+    margin-left: 0;
+    top: $top + 1;
+  }
+
+  ul.timeline li timeline-panel {
+    float: right;
+  }
+
+  ul.timeline li timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
+    top: $top + 11px;
+  }
+
+  ul.timeline li timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
+    top: $top + 12px;
+  }
 }

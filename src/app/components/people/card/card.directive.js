@@ -112,7 +112,7 @@
               comment: 'Had a very long conversation about something important.',
               initiator: 'Anonymous Cru Staff',
               creator: 'Some Other Cru Staff',
-              time:  moment().subtract(20, 'minutes').fromNow(),
+              time:  moment().subtract(20, 'minutes'),
               org: 'Cru Hackathon'
             },
             {
@@ -121,14 +121,14 @@
               <p>Please come to our event.</p>\
               <p>Thanks!</p>',
               initiator: 'Anonymous Cru Staff',
-              time:  moment().subtract(1, 'hour').fromNow(),
+              time:  moment().subtract(1, 'hour'),
               org: 'Cru Hackathon'
             },
             {
               type: 'Completed Survey',
               answers: [],
               initiator: 'Anonymous Cru Staff',
-              time:  moment().subtract(2, 'days').fromNow(),
+              time:  moment().subtract(2, 'days'),
               org: 'Cru Hackathon',
               survey: [
                 {
