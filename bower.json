@@ -17,7 +17,6 @@
     "bootstrap-sass-official": "~3.3.5",
     "crubrand": "https://github.com/OzzieOrca/crubrand.git#upgrade-bootstrap-sass-3.3.5",
     "components-font-awesome": "~4.4.0",
-    "angular-spinkit": "~0.3.3",
     "animate.css": "~3.3.0",
     "lodash": "~3.10.1",
     "moment": "~2.10.3",

@@ -1,7 +1,7 @@
 <section>
   <h6>{{contactInfo.title}}</h6>
-  <div layout="row" layout-align="start start" ng-repeat="info in contactInfo.data" ng-switch="contactInfo.label">
-    <md-input-container flex="15" md-no-float>
+  <div layout="row" layout-sm="column" layout-align="start start" ng-repeat="info in contactInfo.data" ng-switch="contactInfo.label" flex>
+    <md-input-container flex-gt-sm="20" flex-gt-lg="15" md-no-float>
       <md-select ng-model="info.type" aria-label="{{contactInfo.label}} Type">
         <md-option ng-value="type" ng-repeat="type in contactInfo.types">{{type}}</md-option>
       </md-select>
@@ -31,13 +31,15 @@
         </md-input-container>
       </div>
     </div>
-    <md-button class="md-accent md-button-sm" ng-disabled="info.primary" ng-click="info.primary = !info.primary" ng-switch="info.primary" aria-label="Make primary or show as primary">
-      <span ng-switch-when="false">Make Primary</span>
-      <span ng-switch-when="true">Primary</span>
-    </md-button>
-    <md-button class="md-icon-button md-warn" aria-label="Remove {{contactInfo.label}}" ng-click="contactInfo.removeInfo($index)">
-      <ng-md-icon icon="close"></ng-md-icon>
-    </md-button>
+    <div layout="row">
+      <md-button class="md-accent md-button-sm" ng-disabled="info.primary" ng-click="info.primary = !info.primary" ng-switch="info.primary" aria-label="Make primary or show as primary">
+        <span ng-switch-when="false">Make Primary</span>
+        <span ng-switch-when="true">Primary</span>
+      </md-button>
+      <md-button class="md-icon-button md-warn" aria-label="Remove {{contactInfo.label}}" ng-click="contactInfo.removeInfo($index)">
+        <ng-md-icon icon="close"></ng-md-icon>
+      </md-button>
+    </div>
   </div>
   <div layout="row">
     <md-input-container flex="65" flex-offset="15" md-no-float>
