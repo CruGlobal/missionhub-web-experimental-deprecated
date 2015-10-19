@@ -10,9 +10,10 @@
       'ngSanitize',
       'restangular',
       'ui.router',
-      'ngMaterial',
-      'ngMdIcons',
       'satellizer',
+
+      //app theme modules
+      'missionhub.themes',
 
       //app directive modules
       'missionhub.navbar',
