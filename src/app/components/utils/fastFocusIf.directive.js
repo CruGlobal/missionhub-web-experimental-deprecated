@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  //based on https://github.com/hiebj/ng-focus-if but without the $timeout
+  //based on https://github.com/hiebj/ng-focus-if
 
   angular
     .module('missionhub.utils')
@@ -19,17 +19,8 @@
     /** @ngInject */
     function FastFocusIfLink($scope, $element, $attrs) {
       var dom = $element[0];
-      if ($attrs.focusIf) {
-        $scope.$watch($attrs.focusIf, focus);
-      } else {
-        focus(true);
-      }
-      function focus(condition) {
-        if (condition) {
-          //$timeout(function() {
-          dom.focus();
-          //}, $scope.$eval($attrs.focusDelay) || 0);
-        }
+      if ($attrs.fastFocusIf) {
+        dom.focus();
       }
     }
   }
