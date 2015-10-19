@@ -12,10 +12,10 @@
       templateUrl: 'app/components/dashboard/dashboard.html',
       controller: DashboardController,
       controllerAs: 'dashboard',
+      bindToController: true,
       scope: {
 
-      },
-      bindToController: true
+      }
     };
 
     return directive;

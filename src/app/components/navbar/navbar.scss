@@ -1,0 +1,20 @@
+md-toolbar.cruNavbar:not(.md-menu-toolbar){
+  background-color: #FFFFFF;
+  border-top: 3px solid #f9b625;
+}
+
+.logo{
+  width: 120px;
+  height: 30px;
+  -webkit-filter: drop-shadow(0 0 2px rgba(0,0,0,0.8));
+}
+
+.md-button.md-button-nav{
+  border-radius: 0;
+  margin: 0;
+  padding: 0 10px;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

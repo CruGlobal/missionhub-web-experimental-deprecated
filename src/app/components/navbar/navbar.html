@@ -1,18 +1,23 @@
-<md-toolbar md-scroll-shrink>
+<md-toolbar md-scroll-shrink class="cruNavbar">
   <div class="md-toolbar-tools">
-    <h3>
-      <span>MissionHub</span>
-    </h3>
-    <md-tabs md-selected="selectedIndex" md-border-bottom flex class="md-primary">
-      <md-tab label="Dashboard"></md-tab>
-      <md-tab label="People"></md-tab>
-    </md-tabs>
-    <span flex></span>
-    <md-button class="md-icon-button" aria-label="Favorite">
-      <ng-md-icon icon="send"></ng-md-icon>
-    </md-button>
-    <md-button class="md-icon-button" aria-label="More">
-      <ng-md-icon icon="send"></ng-md-icon>
-    </md-button>
+    <div layout="row" layout-fill>
+      <md-button ui-sref="dashboard" class="md-button-nav" aria-label="MissionHub Logo"><img src="assets/images/mh-logo-full.png" class="logo"></md-button>
+      <md-button ui-sref="dashboard" ui-sref-active="active" class="md-button-nav">Dashboard</md-button>
+      <md-button ui-sref="people.index" ui-sref-active="active" class="md-button-nav">People</md-button>
+      <md-button ui-sref="conversations" ui-sref-active="active" class="md-button-nav">Conversations</md-button>
+      <md-button ui-sref="dashboard" ui-sref-active="active" class="md-button-nav">Surveys</md-button>
+    </div>
+    <md-menu md-position-mode="target-right target" ng-if="navbar.auth.isAuthenticated()">
+      <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open account menu">
+        <ng-md-icon icon="account_box" md-menu-origin></ng-md-icon>
+      </md-button>
+      <md-menu-content>
+        <md-menu-item>
+          <md-button ng-click="navbar.auth.logout()">
+            Sign out <ng-md-icon icon="logout" md-menu-align-target></ng-md-icon>
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
   </div>
 </md-toolbar>
