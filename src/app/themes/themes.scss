@@ -2,6 +2,13 @@
   text-transform: none;
 }
 
+.social-sign-in{
+  @extend .no-text-transform;
+  md-icon, ng-md-icon{
+    margin-right: 5px;
+  }
+}
+
 .facebook-sign-in{
   background-color: #3b5999 !important;
   color: #FFFFFF !important;

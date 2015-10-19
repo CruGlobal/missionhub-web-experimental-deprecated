@@ -3,12 +3,12 @@
     <md-card-content layout="column">
       <three-bounce-spinner ng-if="welcome.authenticating"></three-bounce-spinner>
 
-      <md-button class="md-raised no-text-transform" ng-click="welcome.authenticate('google')">
+      <md-button class="md-raised social-sign-in" ng-click="welcome.authenticate('google')">
         <md-icon md-svg-icon="google" aria-label="google "></md-icon>
         Sign in with Google
       </md-button>
 
-      <md-button class="md-raised facebook-sign-in no-text-transform" ng-click="welcome.authenticate('facebook')">
+      <md-button class="md-raised social-sign-in facebook-sign-in" ng-click="welcome.authenticate('facebook')">
         <ng-md-icon icon="facebook"></ng-md-icon>
         Sign in with Facebook
       </md-button>
