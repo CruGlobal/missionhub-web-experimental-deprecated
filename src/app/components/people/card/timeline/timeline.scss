@@ -1,6 +1,28 @@
-$top: 35px;
+.timeline-card{
+  margin-left: 25px;
+  md-card-content{
+    padding-top: 0;
+  }
+  &.actions-card{
+    margin-bottom: 16px;
+  }
+  .timeline-header{
+    h4{
+      margin-left: 10px;
+      margin-bottom: 0px;
+    }
+  }
+}
 
 .timeline-badge {
+  background-color: $cruGold;
+  color: #FFFFFF;
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin-left: -25px;
+  margin-top: 10px;
   .badge-day {
     font-size: 20px;
     line-height: 22px;
@@ -11,49 +33,5 @@ $top: 35px;
     font-size: 13px;
     line-height: 14px;
     text-transform: uppercase;
-  }
-}
-
-timeline[timeline-left]{
-  ul.timeline li .timeline-panel {
-    width: calc(100% - 85px);
-    width: -moz-calc(100% - 85px);
-    width: -webkit-calc(100% - 85px);
-  }
-
-  ul.timeline:before {
-    left: 40px;
-  }
-
-  ul.timeline li timeline-panel {
-    width: calc(100% - 85px);
-    width: -moz-calc(100% - 85px);
-    width: -webkit-calc(100% - 85px);
-  }
-
-  ul.timeline li timeline-badge {
-    left: 15px;
-    margin-left: 0;
-    top: $top + 1;
-  }
-
-  ul.timeline li timeline-panel {
-    float: right;
-  }
-
-  ul.timeline li timeline-panel:before {
-    border-left-width: 0;
-    border-right-width: 15px;
-    left: -15px;
-    right: auto;
-    top: $top + 11px;
-  }
-
-  ul.timeline li timeline-panel:after {
-    border-left-width: 0;
-    border-right-width: 14px;
-    left: -14px;
-    right: auto;
-    top: $top + 12px;
   }
 }

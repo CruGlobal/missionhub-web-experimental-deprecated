@@ -1,34 +1,50 @@
-<timeline timeline-left>
-  <timeline-event ng-repeat="event in timeline.events">
-    <timeline-badge ng-switch="event.type" ng-class="[{'primary': event.type === 'Spiritual Conversation'}, {'danger': event.type === 'Email'}, {'warning': event.type === 'Completed Survey'}]">
+<md-card class="timeline-card actions-card">
+  <div layout="row" layout-align="space-between center">
+    <md-button class="md-accent">
+      <ng-md-icon icon="people"></ng-md-icon>
+      Add Interaction
+    </md-button>
+    <md-button class="md-accent">
+      <ng-md-icon icon="send"></ng-md-icon>
+      Send New Message
+    </md-button>
+    <md-button class="md-accent">
+      <ng-md-icon icon="assignment"></ng-md-icon>
+      Input Survey Answers
+    </md-button>
+  </div>
+</md-card>
+<md-card class="timeline-card" ng-repeat="event in timeline.events">
+  <div class="timeline-header" layout="row" layout-align="start center">
+    <div class="timeline-badge md-primary">
       <div class="badge-day">{{event.time.format('D')}}</div>
       <div class="badge-month">{{event.time.format('MMM')}}</div>
-    </timeline-badge>
-    <timeline-panel class="{{event.badgeClass}}">
-      <timeline-heading ng-switch="event.type">
-        <h4>
-          <ng-md-icon ng-switch-when="Spiritual Conversation" icon="people"></ng-md-icon>
-          <ng-md-icon ng-switch-when="Email" icon="email"></ng-md-icon>
-          <ng-md-icon ng-switch-when="Completed Survey" icon="assignment"></ng-md-icon>
-          {{event.type}} <small>with {{event.initiator}}</small>
-        </h4>
-        <p>
-          <small class="text-muted">
-            <i class="glyphicon glyphicon-time"></i>
-            {{event.time.fromNow()}} - Visible to everyone in {{event.org}}<span ng-if="event.creator"> - Created by {{event.creator}}</span>
-          </small>
-        </p>
-      </timeline-heading>
-      <div ng-switch="event.type">
-        <div ng-switch-when="Spiritual Conversation" ng-bind-html="event.comment"></div>
-        <div ng-switch-when="Email" ng-bind-html="event.emailBody"></div>
-        <div ng-switch-when="Completed Survey">
-          <dl class="dl-horizontal">
-            <dt ng-repeat-start="surveyQuestion in event.survey">{{surveyQuestion.question}}</dt>
-            <dd ng-repeat-end>{{surveyQuestion.answer}}</dd>
-          </dl>
-        </div>
-      </div>
-    </timeline-panel>
-  </timeline-event>
-</timeline>
+    </div>
+    <h4 ng-switch="event.type">
+      <ng-md-icon ng-switch-when="Spiritual Conversation" icon="people"></ng-md-icon>
+      <ng-md-icon ng-switch-when="Email" icon="email"></ng-md-icon>
+      <ng-md-icon ng-switch-when="Completed Survey" icon="assignment"></ng-md-icon>
+      {{event.type}} <small>with {{event.initiator}}</small>
+    </h4>
+    <span flex></span>
+    <md-button class="md-icon-button" aria-label="Edit">
+      <ng-md-icon icon="edit"></ng-md-icon>
+    </md-button>
+  </div>
+  <md-card-content ng-switch="event.type">
+    <p>
+      <small class="text-muted">
+        <i class="glyphicon glyphicon-time"></i>
+        {{event.time.fromNow()}} - Visible to everyone in {{event.org}}<span ng-if="event.creator"> - Created by {{event.creator}}</span>
+      </small>
+    </p>
+    <div ng-switch-when="Spiritual Conversation" ng-bind-html="event.comment"></div>
+    <div ng-switch-when="Email" ng-bind-html="event.emailBody"></div>
+    <div ng-switch-when="Completed Survey">
+      <dl class="dl-horizontal">
+        <dt ng-repeat-start="surveyQuestion in event.survey">{{surveyQuestion.question}}</dt>
+        <dd ng-repeat-end>{{surveyQuestion.answer}}</dd>
+      </dl>
+    </div>
+  </md-card-content>
+</md-card>

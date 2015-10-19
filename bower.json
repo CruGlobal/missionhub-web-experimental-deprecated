@@ -11,7 +11,6 @@
     "angular-material": "~0.11.4",
     "angular-material-icons": "~0.6.0",
     "angular-material-data-table": "~0.8.14",
-    "angular-timeline": "~1.5.2",
     "restangular": "~1.5.1",
     "satellizer": "~0.12.5",
     "bootstrap-sass-official": "~3.3.5",
