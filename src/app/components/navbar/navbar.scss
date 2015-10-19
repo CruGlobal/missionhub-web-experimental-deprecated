@@ -17,4 +17,6 @@ md-toolbar.cruNavbar:not(.md-menu-toolbar){
   display: flex;
   justify-content: center;
   align-items: center;
+  @extend .no-text-transform;
+  color: #3a3a3a;
 }
