@@ -8,7 +8,7 @@
   /** @ngInject */
   function config($authProvider, authKeys) {
     //Authentication Config
-    $authProvider.baseUrl = 'http://localhost:3000/apis/v4/';
+    //$authProvider.baseUrl is set in index.config.js based on environment
     $authProvider.withCredentials = false; //TODO: Remove if not needed in production. Enables wildcard in 'Access-Control-Allow-Origin'
 
     $authProvider.google({
