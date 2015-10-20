@@ -62,7 +62,7 @@
       function getPerson(){
         return {
           fname: 'Scotty',
-          lname: 'Wagggoner',
+          lname: 'Waggoner',
           role: 'Intern',
           enrollment: 'Masters/Doctorate',
           gender:'Male',
@@ -108,27 +108,29 @@
           ],
           events: [
             {
-              type: 'Spiritual Conversation',
+              type: 'interaction',
+              interactionType: 'Spiritual Conversation',
               comment: 'Had a very long conversation about something important.',
               initiator: 'Anonymous Cru Staff',
               creator: 'Some Other Cru Staff',
-              time:  moment().subtract(20, 'minutes'),
+              time:  moment().subtract(20, 'minutes').toDate(),
               org: 'Cru Hackathon'
             },
             {
-              type: 'Email',
+              type: 'message',
+              messageType: 'Email',
               emailBody: '<p>Hey Scotty,</p>\
               <p>Please come to our event.</p>\
               <p>Thanks!</p>',
               initiator: 'Anonymous Cru Staff',
-              time:  moment().subtract(1, 'hour'),
+              time:  moment().subtract(1, 'hour').toDate(),
               org: 'Cru Hackathon'
             },
             {
-              type: 'Completed Survey',
-              answers: [],
+              type: 'survey',
+              surveyType: 'Completed Survey',
               initiator: 'Anonymous Cru Staff',
-              time:  moment().subtract(2, 'days'),
+              time:  moment().subtract(2, 'days').toDate(),
               org: 'Cru Hackathon',
               survey: [
                 {

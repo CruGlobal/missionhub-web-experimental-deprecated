@@ -8,7 +8,7 @@
     "angular-touch": "~1.4.0",
     "angular-sanitize": "~1.4.0",
     "angular-ui-router": "~0.2.15",
-    "angular-material": "~0.11.4",
+    "angular-material": "~0.12.0-rc1",
     "angular-material-icons": "~0.6.0",
     "angular-material-data-table": "~0.8.14",
     "restangular": "~1.5.1",

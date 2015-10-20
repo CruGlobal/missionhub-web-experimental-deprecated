@@ -21,8 +21,10 @@
     return directive;
 
     /** @ngInject */
-    function TimelineController() {
+    function TimelineController(moment) {
       var vm = this;
+      vm.moment = moment;
+      vm.interactionTypes = geInteractionTypes();
 
       activate();
 
@@ -30,6 +32,16 @@
 
       }
 
+      function geInteractionTypes(){
+        return [
+          'Spiritual Conversation',
+          'Comment',
+          'Personal Evangelism',
+          'Personal Evangelism Decisions',
+          'Holy Spirit Presentation',
+          'Graduating on Mission'
+        ];
+      }
     }
   }
 })();
