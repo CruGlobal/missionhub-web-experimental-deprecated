@@ -2,6 +2,9 @@
   'use strict';
 
   angular
-    .module('missionhub.auth', []);
+    .module('missionhub.auth', [
+      'satellizer',
+      'LocalStorageModule'
+    ]);
 
 })();

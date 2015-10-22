@@ -10,7 +10,6 @@
       'ngSanitize',
       'restangular',
       'ui.router',
-      'satellizer',
       'environment',
 
       //app theme modules
