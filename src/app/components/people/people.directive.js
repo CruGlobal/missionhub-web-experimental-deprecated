@@ -39,7 +39,7 @@
       }
 
       function getPeople(order){
-        if(order.charAt(0) == '-'){
+        if(order.charAt(0) === '-'){
           order = order.slice(1) + ' DESC';
         }
         vm.peoplePromise = $http.get('http://localhost:3000/apis/v4/people?organization_id=8258&order=' + order).then(function(data){

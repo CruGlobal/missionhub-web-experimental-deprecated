@@ -1,4 +1,3 @@
-/* global localStorage:false */
 (function () {
   'use strict';
 
