@@ -6,7 +6,7 @@
     .factory('authenticator', authenticatorService);
 
   /** @ngInject */
-  function authenticatorService($log, $auth, $rootScope, $state, localStorageService){
+  function authenticatorService($log, $auth, $rootScope, $state, localStorageService, $q){
     var factory = {
       authenticate: authenticate,
       logout: logout,
@@ -34,9 +34,10 @@
           localStorageService.set('currentOrganization', response.data.recent_organization_id);
           $log.info("JWT Payload:", $auth.getPayload());
           $state.transitionTo("dashboard");
-        })
-        .catch(function(response) {
+          return true;
+        }, function(response) {
           $log.error("Authentication failed:", response);
+          return $q.reject(response.data);
         });
     }
 
