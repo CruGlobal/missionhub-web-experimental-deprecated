@@ -21,13 +21,13 @@
     return directive;
 
     /** @ngInject */
-    function PeopleController() {
+    function PeopleController($http) {
       var vm = this;
-      vm.people = generatePeople();
+      vm.onOrderChange = onOrderChange;
       vm.selected = [];
       vm.query = {
         filter: '',
-        order: 'name',
+        order: 'last_name',
         limit: 5,
         page: 1
       };
@@ -35,25 +35,17 @@
       activate();
 
       function activate() {
-
+        getPeople(vm.query.order);
       }
 
-      function generatePeople(){
-        return [
-          {fname: 'Joe', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe2', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe3', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe4', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe5', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe6', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe7', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe8', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe9', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe10', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe11', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe12', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-          {fname: 'Joe13', lname: 'Smith', gender: 'Male', status: 'Uncontacted'},
-        ];
+      function getPeople(order){
+        vm.peoplePromise = $http.get('http://localhost:3000/apis/v4/people?organization_id=8258&order=' + order).then(function(data){
+          vm.people = data.data.people;
+        });
+      }
+
+      function onOrderChange(){
+        getPeople(vm.query.order);
       }
     }
   }

@@ -14,21 +14,23 @@
     </md-data-table-toolbar>
 
     <md-data-table-container>
-      <table md-data-table md-row-select="people.selected" md-progress="deferred">
-        <thead md-order="people.query.order" md-trigger="onOrderChange">
+      <table md-data-table md-row-select="people.selected" md-progress="people.peoplePromise">
+        <thead md-order="people.query.order" md-trigger="people.onOrderChange">
         <tr>
-          <th name="First" order-by="fname"></th>
-          <th name="Last" order-by="lname"></th>
+          <th name="First" order-by="first_name"></th>
+          <th name="Last" order-by="last_name"></th>
           <th name="Gender" order-by="gender"></th>
-          <th name="Status" order-by="status"></th>
+          <th name="Status" order-by="followup_status"></th>
+          <th name="Year in School" order-by="year_in_school"></th>
         </tr>
         </thead>
         <tbody>
-        <tr ui-sref="people.card({personId: 123})" ng-repeat="person in people.people track by $index">
-          <td>{{person.fname}}</td>
-          <td>{{person.lname}}</td>
+        <tr ui-sref="people.card({personId: {{person.id}}})" ng-repeat="person in people.people track by $index">
+          <td>{{person.first_name}}</td>
+          <td>{{person.last_name}}</td>
           <td>{{person.gender}}</td>
-          <td>{{person.status}}</td>
+          <td>{{person.organizational_permission.followup_status | capitalize}}</td>
+          <td>{{person.year_in_school}}</td>
         </tr>
         </tbody>
       </table>
