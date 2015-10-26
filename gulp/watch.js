@@ -12,7 +12,11 @@ function isOnlyChange(event) {
 
 gulp.task('watch', ['inject'], function () {
 
-  gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject']);
+  gulp.watch([
+    path.join(conf.paths.src, '/*.html'),
+    'bower.json',
+    'bower_components/missionhub-js/dist/missionhubApi.js'
+  ], ['inject']);
 
   gulp.watch([
     path.join(conf.paths.src, '/app/**/*.css'),
