@@ -4,7 +4,7 @@
   angular
     .module('missionhub.auth', [
       'satellizer',
-      'LocalStorageModule'
+      'missionhub.api'
     ]);
 
 })();

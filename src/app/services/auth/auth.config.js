@@ -6,7 +6,7 @@
     .config(config);
 
   /** @ngInject */
-  function config($authProvider, authKeys, localStorageServiceProvider) {
+  function config($authProvider, authKeys) {
     //Authentication Config
     //$authProvider.baseUrl is set in index.config.js based on environment
     $authProvider.withCredentials = false; //TODO: Remove if not needed in production. Enables wildcard in 'Access-Control-Allow-Origin'
@@ -20,8 +20,6 @@
     $authProvider.facebook({
       clientId: authKeys.facebook.clientId
     });
-
-    localStorageServiceProvider.setPrefix('mh.user');
   }
 
 })();

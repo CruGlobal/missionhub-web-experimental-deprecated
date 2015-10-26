@@ -24,7 +24,7 @@
       //app service modules
       'missionhub.auth',
       'missionhub.genericServices',
-      'missionhub-js'
+      'missionhub.api'
     ]);
 
 })();

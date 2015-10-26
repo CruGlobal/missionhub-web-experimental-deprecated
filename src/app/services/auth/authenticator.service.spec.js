@@ -43,7 +43,7 @@
     });
 
     it('should be registered', function () {
-      expect(self.authenticator).not.toEqual(null);
+      expect(self.authenticator).toBeDefined();
     });
 
     describe('authenticate function', function () {
@@ -106,43 +106,6 @@
         expect(self.localStorageService.keys()).toEqual([]);
         expect(self.$window.localStorage.getItem('mh.satellizer_token')).toEqual(null);
         self.$state.ensureAllTransitionsHappened();
-      });
-    });
-
-    describe('user details getters', function(){
-      beforeEach(function(){
-        callAuthProcess();
-      });
-      describe('getFirstName function', function(){
-        it('should return the user\'s first name', function(){
-          expect(self.authenticator.user.getFirstName()).toEqual(self.user_details.first_name);
-        });
-      });
-      describe('getLastName function', function(){
-        it('should return the user\'s last name', function(){
-          expect(self.authenticator.user.getLastName()).toEqual(self.user_details.last_name);
-        });
-      });
-      describe('getPersonId function', function(){
-        it('should return the user\'s person id', function(){
-          expect(self.authenticator.user.getPersonId()).toEqual(self.user_details.person_id);
-        });
-      });
-      describe('getProfilePicture function', function(){
-        it('should return the user\'s profile picture', function(){
-          expect(self.authenticator.user.getProfilePicture()).toEqual(self.user_details.profile_image_url);
-        });
-      });
-      describe('getCurrentOrg function', function(){
-        it('should return the user\'s current org', function(){
-          expect(self.authenticator.user.getCurrentOrg()).toEqual(self.user_details.recent_organization_id);
-        });
-      });
-      describe('setCurrentOrg function', function(){
-        it('should change the user\'s current org', function(){
-          self.authenticator.user.setCurrentOrg('newOrg');
-          expect(self.authenticator.user.getCurrentOrg()).toEqual('newOrg');
-        });
       });
     });
   });
