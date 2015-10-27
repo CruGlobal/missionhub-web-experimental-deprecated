@@ -19,7 +19,7 @@
     "animate.css": "~3.3.0",
     "lodash": "~3.10.1",
     "moment": "~2.10.3",
-    "missionhub-js": "~0.0.2",
+    "missionhub-js": "~0.0.3",
     "angular-environment": "~1.0.2"
   },
   "devDependencies": {

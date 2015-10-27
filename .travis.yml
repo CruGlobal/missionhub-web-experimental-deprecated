@@ -5,3 +5,7 @@ script:
   - gulp test
   - gulp
   - gulp coveralls
+cache:
+  directories:
+  - node_modules
+  - bower_components
