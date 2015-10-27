@@ -1,4 +1,6 @@
 # MissionHub Web Client
+[![Build Status](https://travis-ci.org/CruGlobal/missionhub-web.svg)](https://travis-ci.org/CruGlobal/missionhub-web)
+[![Coverage Status](https://coveralls.io/repos/CruGlobal/missionhub-web/badge.svg?branch=master&service=github)](https://coveralls.io/github/CruGlobal/missionhub-web?branch=master)
 ## Development Environment Setup
 1. Install NodeJS. This will vary depending on your Operating System.
 2. Clone this repo and open a terminal in that folder.

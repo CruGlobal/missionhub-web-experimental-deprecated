@@ -1,0 +1,7 @@
+install:
+  - npm install
+  - bower install
+script:
+  - gulp test
+  - gulp
+  - gulp coveralls

@@ -27,6 +27,7 @@
     "jquery": "~2.1.4"
   },
   "resolutions": {
+    "angular": "~1.4.0",
     "angular-material": "~1.0.0-rc1"
   }
 }
