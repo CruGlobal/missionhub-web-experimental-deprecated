@@ -7,14 +7,34 @@
       <md-button ui-sref="conversations" ui-sref-active="active" class="md-button-nav">Conversations</md-button>
       <md-button ui-sref="dashboard" ui-sref-active="active" class="md-button-nav">Surveys</md-button>
     </div>
-    <md-menu md-position-mode="target-right target" ng-if="navbar.auth.isAuthenticated()">
-      <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open account menu">
-        <ng-md-icon icon="account_box" md-menu-origin></ng-md-icon>
+
+    <md-menu ng-if="navbar.auth.isAuthenticated()" class="md-menu-nav">
+      <md-button ng-click="$mdOpenMenu($event)" class="md-button-nav" aria-label="Select Organization">
+        <ng-md-icon icon="group_work"></ng-md-icon>
+        {{navbar.currentOrg.name}}
       </md-button>
-      <md-menu-content>
+      <md-menu-content width="4">
+        <md-menu-item ng-repeat="org in navbar.orgs">
+          <md-button ng-click="">
+            {{org.name}}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+
+    <md-menu ng-if="navbar.auth.isAuthenticated()" class="md-menu-nav">
+      <md-button ng-click="$mdOpenMenu($event)" class="md-button-nav" aria-label="Open account menu">
+        <ng-md-icon icon="account_box"></ng-md-icon>
+        {{navbar.userDetails.getFirstName()}}
+        {{navbar.userDetails.getLastName()}}
+      </md-button>
+      <md-menu-content width="3">
         <md-menu-item>
           <md-button ng-click="navbar.auth.logout()">
-            Sign out <ng-md-icon icon="logout" md-menu-align-target></ng-md-icon>
+            <div layout="row">
+              <span flex>Sign out</span>
+              <ng-md-icon icon="logout"></ng-md-icon>
+            </div>
           </md-button>
         </md-menu-item>
       </md-menu-content>
