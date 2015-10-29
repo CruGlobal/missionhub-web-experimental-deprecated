@@ -18,6 +18,9 @@
             },
             logout: function(){
               $window.localStorage.removeItem('mh.satellizer_token');
+            },
+            isAuthenticated: function(){
+              return $window.localStorage.getItem('mh.satellizer_token') !== null;
             }
           };
         });
@@ -107,6 +110,15 @@
         expect(self.$window.localStorage.getItem('mh.satellizer_token')).toEqual(null);
         self.$state.ensureAllTransitionsHappened();
       });
+    });
+    describe('isAuthenticated function', function(){
+      it('should return a bool depending on auth state', function(){
+        callAuthProcess();
+        expect(self.authenticator.isAuthenticated()).toBeTruthy();
+        self.$state.expectTransitionTo('welcome');
+        self.authenticator.logout();
+        expect(self.authenticator.isAuthenticated()).toBeFalsy();
+      })
     });
   });
 })();
