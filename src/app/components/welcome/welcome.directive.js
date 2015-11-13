@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function WelcomeController(authenticator) {
+    function WelcomeController(authenticator, $state) {
       var vm = this;
       vm.authenticate = authenticate;
       vm.authenticating = false;
@@ -29,7 +29,9 @@
       activate();
 
       function activate() {
-
+        if(authenticator.isAuthenticated()){
+          $state.transitionTo("dashboard");
+        }
       }
 
       function authenticate(provider){

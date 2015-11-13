@@ -121,7 +121,7 @@
         self.$state.expectTransitionTo('welcome');
         self.authenticator.logout();
         expect(self.authenticator.isAuthenticated()).toBeFalsy();
-      })
+      });
     });
   });
 })();
