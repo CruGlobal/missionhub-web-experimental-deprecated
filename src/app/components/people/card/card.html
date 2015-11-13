@@ -7,12 +7,12 @@
           <div layout="row" flex>
             <h1 flex="50">
               <md-input-container md-no-float>
-                <input type="text" ng-model="card.person.fname" placeholder="First Name">
+                <input type="text" ng-model="card.person.first_name" placeholder="First Name">
               </md-input-container>
             </h1>
             <h1 flex="50">
               <md-input-container md-no-float>
-                <input type="text" ng-model="card.person.lname" placeholder="Last Name">
+                <input type="text" ng-model="card.person.last_name" placeholder="Last Name">
               </md-input-container>
             </h1>
           </div>
@@ -71,7 +71,7 @@
         <div class="page-header">
           <h4>Contact Info</h4>
         </div>
-        <contact-info title="Emails" label="Email" data="card.person.emails" types="['Home', 'Work', 'Other']"></contact-info>
+        <contact-info title="Emails" label="Email" data="card.person.email_addresses" types="['Home', 'Work', 'Other']"></contact-info>
         <contact-info title="Phone Numbers" label="Phone Number" data="card.person.phones" types="['Home', 'Mobile', 'Work', 'Other']"></contact-info>
         <contact-info title="Addresses" label="Address" data="card.person.addresses" types="['Home', 'Work', 'Other']"></contact-info>
       </div>

@@ -23,7 +23,7 @@
           userDetails.setLastName(response.data.last_name);
           userDetails.setPersonId(response.data.person_id);
           userDetails.setProfilePicture(response.data.profile_image_url);
-          userDetails.setCurrentOrganization(response.data.recent_organization_id);
+          userDetails.setCurrentOrganization(response.data.recent_organization);
           $log.info("JWT Payload:", $auth.getPayload());
           $state.transitionTo("dashboard");
           return true;

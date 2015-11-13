@@ -11,7 +11,7 @@
     <md-menu ng-if="navbar.auth.isAuthenticated()" class="md-menu-nav">
       <md-button ng-click="$mdOpenMenu($event)" class="md-button-nav" aria-label="Select Organization">
         <ng-md-icon icon="group_work"></ng-md-icon>
-        {{navbar.currentOrg.name}}
+        {{navbar.userDetails.getCurrentOrganization().name}}
       </md-button>
       <md-menu-content width="4">
         <md-menu-item ng-repeat="org in navbar.orgs">
@@ -24,7 +24,7 @@
 
     <md-menu ng-if="navbar.auth.isAuthenticated()" class="md-menu-nav">
       <md-button ng-click="$mdOpenMenu($event)" class="md-button-nav" aria-label="Open account menu">
-        <ng-md-icon icon="account_box"></ng-md-icon>
+        <img ng-src="{{navbar.userDetails.getProfilePicture()}}">
         {{navbar.userDetails.getFirstName()}}
         {{navbar.userDetails.getLastName()}}
       </md-button>

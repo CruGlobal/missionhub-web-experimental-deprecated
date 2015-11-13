@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function PeopleController($http) {
+    function PeopleController(api) {
       var vm = this;
       vm.onOrderChange = onOrderChange;
       vm.selected = [];
@@ -35,20 +35,21 @@
       activate();
 
       function activate() {
-        getPeople(vm.query.order);
+        loadPeople(vm.query.order);
       }
 
-      function getPeople(order){
+      function loadPeople(order){
         if(order.charAt(0) === '-'){
           order = order.slice(1) + ' DESC';
         }
-        vm.peoplePromise = $http.get('http://localhost:3000/apis/v4/people?organization_id=8258&order=' + order).then(function(data){
-          vm.people = data.data.people;
+
+        vm.peoplePromise = api.people.all(order).then(function(data){
+          vm.people = data;
         });
       }
 
       function onOrderChange(){
-        getPeople(vm.query.order);
+        loadPeople(vm.query.order);
       }
     }
   }

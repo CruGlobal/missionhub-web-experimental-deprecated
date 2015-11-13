@@ -21,19 +21,24 @@
     return directive;
 
     /** @ngInject */
-    function PersonCardController($stateParams, _, moment) {
+    function PersonCardController($stateParams, _, moment, api) {
       var vm = this;
       vm.personId = $stateParams.personId;
       vm.showInteractions = true;
       vm.showSurveys = true;
       vm.showMessages = true;
-      vm.person = getPerson();
       vm.labelSearch = labelSearch;
 
       activate();
 
       function activate() {
+        loadPerson();
+      }
 
+      function loadPerson(){
+        api.people.get(vm.personId).then(function(data){
+          vm.person = data;
+        });
       }
 
       function labelSearch(query){

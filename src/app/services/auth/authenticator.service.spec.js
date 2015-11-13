@@ -40,7 +40,10 @@
           last_name: 'Smith',
           person_id: '1234',
           profile_image_url: 'someUrl',
-          recent_organization_id: '4321'
+          recent_organization: {
+            id: '4321',
+            name: 'Test'
+          }
         };
       });
     });
@@ -58,7 +61,7 @@
           expect(self.localStorageService.get('lastName')).toEqual(self.user_details.last_name);
           expect(self.localStorageService.get('personId')).toEqual(self.user_details.person_id);
           expect(self.localStorageService.get('profilePicture')).toEqual(self.user_details.profile_image_url);
-          expect(self.localStorageService.get('currentOrganization')).toEqual(self.user_details.recent_organization_id);
+          expect(self.localStorageService.get('currentOrganization')).toEqual(self.user_details.recent_organization);
           expect(self.$window.localStorage.getItem('mh.satellizer_token')).toEqual(self.user_details.token);
         });
         self.$httpBackend.flush();
@@ -72,7 +75,7 @@
           expect(self.localStorageService.get('lastName')).toEqual(self.user_details.last_name);
           expect(self.localStorageService.get('personId')).toEqual(self.user_details.person_id);
           expect(self.localStorageService.get('profilePicture')).toEqual(self.user_details.profile_image_url);
-          expect(self.localStorageService.get('currentOrganization')).toEqual(self.user_details.recent_organization_id);
+          expect(self.localStorageService.get('currentOrganization')).toEqual(self.user_details.recent_organization);
           expect(self.$window.localStorage.getItem('mh.satellizer_token')).toEqual(self.user_details.token);
         });
         self.$httpBackend.flush();

@@ -22,7 +22,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(authenticator, api, userDetails) {
+    function NavbarController(authenticator, userDetails, api) {
       var vm = this;
       vm.auth = authenticator;
       vm.userDetails = userDetails;
@@ -30,18 +30,14 @@
       activate();
 
       function activate() {
-        loadOrganizations();
-        loadCurrentOrganization();
+        if(vm.auth.isAuthenticated()) {
+          loadOrganizations();
+        }
       }
 
       function loadOrganizations(){
         api.organizations.all().then(function(data){
           vm.orgs = data;
-        });
-      }
-      function loadCurrentOrganization(){
-        api.organizations.current().then(function(data){
-          vm.currentOrg = data;
         });
       }
     }
