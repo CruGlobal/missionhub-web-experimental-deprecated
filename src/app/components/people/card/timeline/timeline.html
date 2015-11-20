@@ -28,14 +28,22 @@
         {{event.type}}
       </span>
       <span ng-switch-when="message">
-        {{event.messageType}}
+        {{event.sent_via | capitalize}}
       </span>
       <span ng-switch-when="survey">
         {{event.surveyType}}
       </span>
-      <small>with
-        <span ng-repeat-start="initiator in event.initiators" ng-if="$last && !$first"> and</pre></span>
-        <span ng-repeat-end><a ui-sref="people.card({personId: initiator.id})">{{initiator.name}}</a>{{!$last && event.initiators.length > 2 ? ',' : ''}}</span>
+      <small>
+        <span ng-switch-when="interaction">
+          with
+          <span ng-repeat-start="initiator in event.initiators" ng-if="$last && !$first"> and</pre></span>
+          <span ng-repeat-end><a ui-sref="people.card({personId: initiator.id})">{{initiator.name}}</a>{{!$last && event.initiators.length > 2 ? ',' : ''}}</span>
+        </span>
+        <span ng-switch-when="message">
+          from
+          <a ui-sref="people.card({personId: event.sender.id})">{{event.sender.name}}</a>
+        </span>
+        <span ng-switch-when="survey">TODO: does this need/have a initiator?</span>
       </small>
     </h4>
     <div ng-if="event.edit" layout="row" layout-align="start center">
@@ -61,18 +69,40 @@
     <p ng-if="!event.edit">
       <small class="text-muted">
         <i class="glyphicon glyphicon-time"></i>
-        Created {{timeline.moment(event.created_at).fromNow()}} - Visible to everyone in {{event.organization.name}}<span ng-if="event.creator"> - Created by <a ui-sref="people.card({personId: event.creator.id})">{{event.creator.name}}</a></span>
+        Created {{timeline.moment(event.created_at).fromNow()}}
+        - Visible to everyone in {{event.organization.name}}
+        <span ng-if="event.creator"> - Created by <a ui-sref="people.card({personId: event.creator.id})">{{event.creator.name}}</a></span>
       </small>
     </p>
     <div ng-if="event.edit">
       <md-datepicker ng-model="event.time"></md-datepicker>
     </div>
-    <div ng-switch-when="interaction" ng-bind-html="event.comment" ng-if="!event.edit"></div>
+    <div ng-switch-when="interaction" ng-if="!event.edit">{{event.comment}}</div>
     <md-input-container ng-switch-when="interaction" ng-if="event.edit">
       <label>Comment</label>
       <textarea ng-model="event.comment"></textarea>
     </md-input-container>
-    <div ng-switch-when="message" ng-bind-html="event.emailBody"></div>
+    <div ng-switch-when="message">
+      <md-list class="message-container md-whiteframe-1dp">
+        <md-list-item layout="row" layout-align="space-between">
+          <div ng-if="event.subject">
+            <strong class="heading-space">Subject:</strong>
+            {{event.subject}}
+          </div>
+          <div ng-if="event.to">
+            <strong class="heading-space">To:</strong>
+            <span ng-if="event.sent_via == 'email'">{{event.to}}</span>
+            <span ng-if="event.sent_via == 'sms'">{{event.to | phone}}</span>
+          </div>
+          <div ng-if="event.from">
+            <strong class="heading-space">From:</strong>
+            {{event.from}}
+          </div>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item class="pre-message">{{event.message}}</md-list-item>
+      </md-list>
+    </div>
     <div ng-switch-when="survey">
       <dl class="dl-horizontal">
         <dt ng-repeat-start="surveyQuestion in event.survey">{{surveyQuestion.question}}</dt>

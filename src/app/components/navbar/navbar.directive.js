@@ -22,8 +22,9 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(authenticator, userDetails, api) {
+    function NavbarController(authenticator, userDetails, api, $state) {
       var vm = this;
+      vm.$state = $state;
       vm.auth = authenticator;
       vm.userDetails = userDetails;
 

@@ -30,6 +30,14 @@
       </md-button>
       <md-menu-content width="3">
         <md-menu-item>
+          <md-button ng-click="navbar.$state.go('people.card', {personId: navbar.userDetails.getPersonId()})">
+            <div layout="row">
+              <span flex>Profile</span>
+              <ng-md-icon icon="assignment_ind"></ng-md-icon>
+            </div>
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
           <md-button ng-click="navbar.auth.logout()">
             <div layout="row">
               <span flex>Sign out</span>

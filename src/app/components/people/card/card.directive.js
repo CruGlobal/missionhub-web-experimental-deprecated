@@ -42,7 +42,11 @@
           var interactions = _.map(data.interactions, function(interaction){
             return _.assign(interaction, {eventType: 'interaction'});
           });
-          vm.events = _.union(vm.events, interactions);
+          var messages = _.map(data.messages, function(message){
+            return _.assign(message, {eventType: 'message'});
+          });
+          console.log(messages);
+          vm.events = _.union(vm.events, interactions, messages);
         });
       }
 

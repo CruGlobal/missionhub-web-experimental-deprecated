@@ -8,10 +8,18 @@
   }
   .timeline-header{
     h4{
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
     .timeline-badge {
       margin-right: 10px;
+    }
+  }
+  .message-container{
+    .heading-space{
+      margin-right: 10px;
+    }
+    .pre-message{
+      white-space: pre;
     }
   }
 }
