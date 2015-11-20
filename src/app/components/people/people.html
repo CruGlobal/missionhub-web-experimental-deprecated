@@ -25,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr ui-sref="people.card({personId: {{person.id}}})" ng-repeat="person in people.people track by $index">
+        <tr ui-sref="people.card({personId: person.id})" ng-repeat="person in people.people track by $index">
           <td>{{person.first_name}}</td>
           <td>{{person.last_name}}</td>
           <td>{{person.gender}}</td>

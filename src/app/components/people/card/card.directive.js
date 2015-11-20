@@ -28,6 +28,7 @@
       vm.showSurveys = true;
       vm.showMessages = true;
       vm.labelSearch = labelSearch;
+      vm.events = [];
 
       activate();
 
@@ -38,6 +39,10 @@
       function loadPerson(){
         api.people.get(vm.personId).then(function(data){
           vm.person = data;
+          var interactions = _.map(data.interactions, function(interaction){
+            return _.assign(interaction, {eventType: 'interaction'});
+          });
+          vm.events = _.union(vm.events, interactions);
         });
       }
 

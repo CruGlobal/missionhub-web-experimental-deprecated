@@ -1,7 +1,7 @@
 <md-card>
   <md-card-content>
     <div layout="row">
-      <span><img class="profile-picture" src="https://graph.facebook.com/v2.2/704802237/picture?width=100&height=100" alt="Profile Picture for Scotty Waggoner"></span>
+      <span><img class="profile-picture" src="{{card.person.picture}}?width=100&height=100" alt="Profile Picture"></span>
       <div layout="column" flex>
         <div layout="column" layout-gt-md="row">
           <div layout="row" flex>
@@ -31,8 +31,8 @@
           </md-input-container>
           <md-input-container>
             <label>Enrollment</label>
-            <md-select ng-model="card.person.enrollment">
-              <md-option ng-value="enrollment" ng-repeat="enrollment in ['Middle School', 'High School', 'Collegiate', 'Masters/Doctorate']">{{enrollment}}</md-option>
+            <md-select ng-model="card.person.student_status">
+              <md-option ng-value="id" ng-repeat="(id, label) in {'not_student': 'Not currently a student', 'middle_school': 'Middle School', 'high_school': 'High School', 'collegiate': 'Collegiate', 'masters_or_doctorate': 'Masters/Doctorate'}">{{label}}</md-option>
             </md-select>
           </md-input-container>
           <md-input-container>
@@ -96,7 +96,7 @@
             </md-button>
           </div>
         </div>
-        <card-timeline events="card.person.events"></card-timeline>
+        <card-timeline events="card.events"></card-timeline>
       </div>
     </div>
   </md-card-content>
