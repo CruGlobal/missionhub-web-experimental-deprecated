@@ -17,7 +17,6 @@
         title: '@',
         label: '@',
         data: '=',
-        types: '='
       }
     };
 
@@ -36,12 +35,21 @@
       }
 
       function addInfo(){
-        vm.data.push({
-          type: 'Home',
-          address: vm.newInfo,
-          primary: false,
+        var newInfoObj = {
           autoFocus: true
-        });
+        };
+        switch (vm.label){
+          case 'Email':
+            newInfoObj.email = vm.newInfo;
+            break;
+          case 'Phone Number':
+            newInfoObj.number = vm.newInfo;
+            break;
+          case 'Address':
+            newInfoObj.address1 = vm.newInfo;
+            break;
+        }
+        vm.data.push(newInfoObj);
         vm.newInfo = '';
       }
 

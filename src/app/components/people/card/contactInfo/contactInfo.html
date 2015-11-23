@@ -1,9 +1,19 @@
 <section>
   <h6>{{contactInfo.title}}</h6>
   <div layout="row" layout-sm="column" layout-align="start start" ng-repeat="info in contactInfo.data" ng-switch="contactInfo.label" flex>
-    <md-input-container flex-gt-sm="20" flex-gt-lg="15" md-no-float>
-      <md-select ng-model="info.location" aria-label="{{contactInfo.label}} Type">
-        <md-option ng-value="type" ng-repeat="type in contactInfo.types">{{type | capitalize}}</md-option>
+    <md-input-container flex-gt-sm="20" flex-gt-lg="15" md-no-float ng-switch-when="Phone Number">
+      <md-select ng-model="info.location" aria-label="Phone Number Type">
+        <md-option value="home">Home</md-option>
+        <md-option value="mobile">Mobile</md-option>
+        <md-option value="work">Work</md-option>
+        <md-option value="other">Other</md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex-gt-sm="20" flex-gt-lg="15" md-no-float ng-switch-when="Address">
+      <md-select ng-model="info.address_type" aria-label="Address Type">
+        <md-option value="current">Current</md-option>
+        <md-option value="permanent">Permanent</md-option>
+        <md-option value="other">Other</md-option>
       </md-select>
     </md-input-container>
     <md-input-container flex md-no-float ng-switch-when="Email">
@@ -32,7 +42,12 @@
       </div>
     </div>
     <div layout="row">
-      <md-button class="md-accent md-button-sm" ng-disabled="info.primary" ng-click="info.primary = !info.primary" ng-switch="info.primary" aria-label="Make primary or show as primary">
+      <md-button class="md-accent md-button-sm"
+                 ng-if="contactInfo.label !== 'Address'"
+                 ng-disabled="info.primary"
+                 ng-click="info.primary = !info.primary"
+                 ng-switch="info.primary"
+                 aria-label="Make primary or show as primary">
         <span ng-switch-when="false">Make Primary</span>
         <span ng-switch-when="true">Primary</span>
       </md-button>
@@ -42,7 +57,7 @@
     </div>
   </div>
   <div layout="row">
-    <md-input-container flex="65" flex-offset="15" md-no-float>
+    <md-input-container ng-attr-flex="{{contactInfo.label !== 'Email' ? 65 : 80}}" ng-attr-flex-offset="{{contactInfo.label !== 'Email' ? 15 : 0}}" md-no-float>
       <input type="email" ng-change="contactInfo.addInfo()" ng-model="contactInfo.newInfo" ng-model-options='{ allowInvalid: true }' placeholder="Add New {{contactInfo.label}}">
     </md-input-container>
   </div>
