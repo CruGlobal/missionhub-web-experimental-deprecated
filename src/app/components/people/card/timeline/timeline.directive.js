@@ -14,7 +14,8 @@
       controllerAs: 'timeline',
       bindToController: true,
       scope: {
-        events: '='
+        events: '=',
+        loading: '='
       }
     };
 
@@ -25,6 +26,11 @@
       var vm = this;
       vm.moment = moment;
       vm.interactionTypes = geInteractionTypes();
+      vm.visibleEventTypes = {
+        interaction: true,
+        survey: true,
+        message: true
+      };
 
       activate();
 

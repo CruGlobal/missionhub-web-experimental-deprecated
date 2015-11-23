@@ -1,3 +1,35 @@
+<div class="page-header" layout="row" layout-align="space-between">
+  <h4>Timeline</h4>
+  <div>
+    <md-button class="md-accent md-button-sm md-button-header"
+               ng-class="{'md-raised': timeline.visibleEventTypes.interaction}"
+               ng-click="timeline.visibleEventTypes.interaction = !timeline.visibleEventTypes.interaction"
+               ng-switch="timeline.visibleEventTypes.interaction"
+               aria-label="Show/Hide">
+      <ng-md-icon ng-switch-when="true" icon="visibility" size="10"></ng-md-icon>
+      <ng-md-icon ng-switch-when="false" icon="visibility_off" size="10"></ng-md-icon>
+      Interactions
+    </md-button>
+    <md-button class="md-accent md-button-sm md-button-header"
+               ng-class="{'md-raised': timeline.visibleEventTypes.message}"
+               ng-click="timeline.visibleEventTypes.message = !timeline.visibleEventTypes.message"
+               ng-switch="timeline.visibleEventTypes.message"
+               aria-label="Show/Hide">
+      <ng-md-icon ng-switch-when="true" icon="visibility" size="10"></ng-md-icon>
+      <ng-md-icon ng-switch-when="false" icon="visibility_off" size="10"></ng-md-icon>
+      Messages
+    </md-button>
+    <md-button class="md-accent md-button-sm md-button-header"
+               ng-class="{'md-raised': timeline.visibleEventTypes.survey}"
+               ng-click="timeline.visibleEventTypes.survey = !timeline.visibleEventTypes.survey"
+               ng-switch="timeline.visibleEventTypes.survey"
+               aria-label="Show/Hide">
+      <ng-md-icon ng-switch-when="true" icon="visibility" size="10"></ng-md-icon>
+      <ng-md-icon ng-switch-when="false" icon="visibility_off" size="10"></ng-md-icon>
+      Surveys
+    </md-button>
+  </div>
+</div>
 <md-card class="timeline-card actions-card">
   <div layout="row" layout-align="space-between center">
     <md-button class="md-accent">
@@ -14,7 +46,7 @@
     </md-button>
   </div>
 </md-card>
-<md-card class="timeline-card" ng-repeat="event in timeline.events | orderBy : '-timestamp'">
+<md-card class="timeline-card" ng-repeat="event in filteredEvents = (timeline.events | eventType:timeline.visibleEventTypes | orderBy : '-timestamp')">
   <div class="timeline-header" layout="row" layout-align="start center">
     <div class="timeline-badge md-primary">
       <div class="badge-day">{{timeline.moment(event.timestamp).format('D')}}</div>
@@ -116,6 +148,38 @@
         <dt ng-repeat-start="surveyQuestion in event.survey">{{surveyQuestion.question}}</dt>
         <dd ng-repeat-end>{{surveyQuestion.answer}}</dd>
       </dl>
+    </div>
+  </md-card-content>
+</md-card>
+<md-card class="timeline-card" ng-if="filteredEvents.length === 0 && !timeline.loading">
+  <md-card-content>
+    <div class="text-center text-muted">
+      <ng-md-icon icon="warning" size="40" style="width: 40px; height: 40px;"></ng-md-icon>
+      <h3>There were no events found.</h3>
+
+      <div ng-if="!timeline.visibleEventTypes.interaction || !timeline.visibleEventTypes.message || !timeline.visibleEventTypes.survey">
+        Try showing more types:<br>
+        <md-button ng-if="!timeline.visibleEventTypes.interaction"
+                   class="md-accent md-button-sm md-button-header md-raised"
+                   ng-click="timeline.visibleEventTypes.interaction = !timeline.visibleEventTypes.interaction">
+          <ng-md-icon icon="visibility" size="10"></ng-md-icon>
+          Show Interactions
+        </md-button>
+        <md-button ng-if="!timeline.visibleEventTypes.message"
+                   class="md-accent md-button-sm md-button-header md-raised"
+                   ng-click="timeline.visibleEventTypes.message = !timeline.visibleEventTypes.message"
+                   ng-switch="timeline.visibleEventTypes.message"
+                   aria-label="Show/Hide">
+          <ng-md-icon icon="visibility" size="10"></ng-md-icon>
+          Show Messages
+        </md-button>
+        <md-button ng-if="!timeline.visibleEventTypes.survey"
+                   class="md-accent md-button-sm md-button-header md-raised"
+                   ng-click="timeline.visibleEventTypes.survey = !timeline.visibleEventTypes.survey">
+          <ng-md-icon icon="visibility" size="10"></ng-md-icon>
+          Surveys
+        </md-button>
+      </div>
     </div>
   </md-card-content>
 </md-card>

@@ -24,11 +24,9 @@
     function PersonCardController($stateParams, _, moment, api) {
       var vm = this;
       vm.personId = $stateParams.personId;
-      vm.showInteractions = true;
-      vm.showSurveys = true;
-      vm.showMessages = true;
       vm.labelSearch = labelSearch;
       vm.events = [];
+      vm.loading = true;
 
       activate();
 
@@ -37,6 +35,7 @@
       }
 
       function loadPerson(){
+        vm.loading = true;
         api.people.get(vm.personId).then(function(data){
           vm.person = data;
           var interactions = _.map(data.interactions, function(interaction){
@@ -45,8 +44,10 @@
           var messages = _.map(data.messages, function(message){
             return _.assign(message, {eventType: 'message'});
           });
-          console.log(messages);
           vm.events = _.union(vm.events, interactions, messages);
+          vm.loading = false;
+        }, function(error){
+          vm.loading = false;
         });
       }
 
