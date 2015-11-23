@@ -1,6 +1,6 @@
 .timeline-card{
   margin-left: 25px;
-  md-card-content{
+  md-card-content.no-spacing-above{
     padding-top: 0;
   }
   &.actions-card{
@@ -15,9 +15,6 @@
     }
   }
   .message-container{
-    .heading-space{
-      margin-right: 10px;
-    }
     .pre-message{
       white-space: pre;
     }

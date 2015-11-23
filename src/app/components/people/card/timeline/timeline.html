@@ -24,11 +24,19 @@
       <ng-md-icon ng-switch-when="interaction" icon="people"></ng-md-icon>
       <ng-md-icon ng-switch-when="message" icon="email"></ng-md-icon>
       <ng-md-icon ng-switch-when="survey" icon="assignment"></ng-md-icon>
-      <span ng-switch-when="interaction">
-        {{event.type}}
+      <span ng-switch-when="interaction" ng-switch="event.type">
+        <span ng-switch-when="Comment Only">Comment</span>
+        <span ng-switch-when="Spiritual Conversation">Spiritual Conversation</span>
+        <span ng-switch-when="Personal Evangelism">Personal Evangelism</span>
+        <span ng-switch-when="Personal Evangelism Decisions">Personal Evangelism Decisions</span>
+        <span ng-switch-when="Holy Spirit Presentation">Holy Spirit Presentation</span>
+        <span ng-switch-when="Graduating on Mission">Graduating on Mission</span>
+        <span ng-switch-default>{{event.type}}</span>
       </span>
-      <span ng-switch-when="message">
-        {{event.sent_via | capitalize}}
+      <span ng-switch-when="message" ng-switch="event.sent_via">
+        <span ng-switch-when="sms">SMS</span>
+        <span ng-switch-when="email">Email</span>
+        <span ng-switch-default>{{event.sent_via | capitalize}}</span>
       </span>
       <span ng-switch-when="survey">
         {{event.surveyType}}
@@ -65,7 +73,7 @@
       <ng-md-icon icon="save"></ng-md-icon>
     </md-button>
   </div>
-  <md-card-content ng-switch="event.eventType">
+  <md-card-content class="no-spacing-above" ng-switch="event.eventType">
     <p ng-if="!event.edit">
       <small class="text-muted">
         <i class="glyphicon glyphicon-time"></i>
@@ -83,25 +91,25 @@
       <textarea ng-model="event.comment"></textarea>
     </md-input-container>
     <div ng-switch-when="message">
-      <md-list class="message-container md-whiteframe-1dp">
-        <md-list-item layout="row" layout-align="space-between">
-          <div ng-if="event.subject">
-            <strong class="heading-space">Subject:</strong>
-            {{event.subject}}
-          </div>
+      <md-card class="message-container md-whiteframe-1dp">
+        <md-card-content>
           <div ng-if="event.to">
-            <strong class="heading-space">To:</strong>
+            <strong>To:</strong>
             <span ng-if="event.sent_via == 'email'">{{event.to}}</span>
             <span ng-if="event.sent_via == 'sms'">{{event.to | phone}}</span>
           </div>
           <div ng-if="event.from">
-            <strong class="heading-space">From:</strong>
+            <strong>From:</strong>
             {{event.from}}
           </div>
-        </md-list-item>
+          <div ng-if="event.subject">
+            <strong>Subject:</strong>
+            {{event.subject}}
+          </div>
+        </md-card-content>
         <md-divider></md-divider>
-        <md-list-item class="pre-message">{{event.message}}</md-list-item>
-      </md-list>
+        <md-card-content class="pre-message">{{event.message}}</md-card-content>
+      </md-card>
     </div>
     <div ng-switch-when="survey">
       <dl class="dl-horizontal">
