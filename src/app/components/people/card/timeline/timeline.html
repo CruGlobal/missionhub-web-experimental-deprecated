@@ -98,7 +98,7 @@
       </h4>
     </div>
     <span flex></span>
-    <md-button class="md-icon-button" aria-label="Edit" ng-click="event.edit=true" ng-if="!event.edit">
+    <md-button class="md-icon-button" aria-label="Edit" ng-click="event.edit=true" ng-if="event.eventType === 'interaction' && !event.edit">
       <ng-md-icon icon="edit"></ng-md-icon>
     </md-button>
     <md-button class="md-icon-button" aria-label="Save" ng-click="event.edit=false" ng-if="event.edit">

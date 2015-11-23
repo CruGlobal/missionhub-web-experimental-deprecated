@@ -19,14 +19,24 @@
         </div>
         <div layout="row" layout-align="space-between">
           <md-input-container>
-            <label>Role</label>
-            <md-select ng-model="card.person.role">
-              <md-optgroup label="Cru Position">
-                <md-option ng-value="role" ng-repeat="role in ['Full Time Supported Staff', 'Part Time Field Staff', 'Intern', 'Affiliate', 'Volunteer']">{{role}}</md-option>
-              </md-optgroup>
-              <md-optgroup label="Campus">
-                <md-option ng-value="role" ng-repeat="role in ['Student Leader', 'Event Team']">{{role}}</md-option>
-              </md-optgroup>
+            <label>Follow-up Status</label>
+            <md-select ng-model="card.person.organizational_permissions[0].followup_status">
+              <md-option value="uncontacted">Uncontacted</md-option>
+              <md-option value="attempted_contact">Attempted Contact</md-option>
+              <md-option value="contacted">Contacted</md-option>
+              <md-option value="completed">Completed</md-option>
+              <md-option value="do_not_contact">Do Not Contact</md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container>
+            <label>Cru Role</label>
+            <md-select ng-model="card.person.organizational_permissions[0].cru_status.name">
+              <md-option value="None">None</md-option>
+              <md-option value="Volunteer">Volunteer</md-option>
+              <md-option value="Affiliate">Affiliate</md-option>
+              <md-option value="Intern">Intern</md-option>
+              <md-option value="Part Time Field Staff">Part Time Field Staff</md-option>
+              <md-option value="Full Time Supported Staff">Full Time Supported Staff</md-option>
             </md-select>
           </md-input-container>
           <md-input-container>
@@ -45,26 +55,7 @@
       </div>
     </div>
 
-    <md-chips ng-model="card.person.labels" md-autocomplete-snap md-require-match="true">
-      <md-autocomplete
-        md-selected-item="card.selectedLabel"
-        md-search-text="card.labelSearchText"
-        md-items="item in card.labelSearch(card.labelSearchText)"
-        md-item-text="item.name"
-        md-autoselect="true"
-        md-min-length="0"
-        placeholder="Search for a label">
-        <md-item-template>
-          <span md-highlight-text="card.labelSearchText" md-highlight-flags="i">{{item}}</span>
-        </md-item-template>
-        <md-not-found>
-          Label not found.
-        </md-not-found>
-      </md-autocomplete>
-      <md-chip-template>
-        <span>{{$chip}}</span>
-      </md-chip-template>
-    </md-chips>
+    <person-labels labels="card.person.labels"></person-labels>
 
     <div flex layout="column" layout-gt-md="row">
       <div flex layout="column">

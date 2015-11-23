@@ -1,0 +1,20 @@
+<md-chips ng-model="labels.labels" md-autocomplete-snap md-require-match="true">
+  <md-autocomplete
+    md-selected-item="labels.selectedLabel"
+    md-search-text="labels.labelSearchText"
+    md-items="item in labels.labelSearch(labels.labelSearchText)"
+    md-item-text="item.name"
+    md-autoselect="true"
+    md-min-length="0"
+    placeholder="Search for a label">
+    <md-item-template>
+      <span md-highlight-text="labels.labelSearchText" md-highlight-flags="i">{{item}}</span>
+    </md-item-template>
+    <md-not-found>
+      Label not found.
+    </md-not-found>
+  </md-autocomplete>
+  <md-chip-template>
+    <span>{{$chip}}</span>
+  </md-chip-template>
+</md-chips>
