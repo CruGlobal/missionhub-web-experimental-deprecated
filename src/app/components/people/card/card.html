@@ -42,13 +42,18 @@
           <md-input-container>
             <label>Enrollment</label>
             <md-select ng-model="card.person.student_status">
-              <md-option ng-value="id" ng-repeat="(id, label) in {'not_student': 'Not currently a student', 'middle_school': 'Middle School', 'high_school': 'High School', 'collegiate': 'Collegiate', 'masters_or_doctorate': 'Masters/Doctorate'}">{{label}}</md-option>
+              <md-option value="not_student">Not currently a student</md-option>
+              <md-option value="middle_school">Middle School</md-option>
+              <md-option value="high_school">High School</md-option>
+              <md-option value="collegiate">Collegiate</md-option>
+              <md-option value="masters_or_doctorate">Masters/Doctorate</md-option>
             </md-select>
           </md-input-container>
           <md-input-container>
             <label>Gender</label>
             <md-select ng-model="card.person.gender">
-              <md-option ng-value="gender" ng-repeat="gender in ['Male', 'Female']">{{gender}}</md-option>
+              <md-option value="Male">Male</md-option>
+              <md-option value="Female">Female</md-option>
             </md-select>
           </md-input-container>
         </div>
