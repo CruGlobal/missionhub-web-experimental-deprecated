@@ -14,10 +14,12 @@ person-card {
 }
 
 h1 > md-input-container {
+  margin-top: 0;
   padding-bottom: 0;
   > .md-input{
     width: 100%;
-    line-height: 56px;
+    height: 59px;
+    line-height: 55px;
   }
 }
 
