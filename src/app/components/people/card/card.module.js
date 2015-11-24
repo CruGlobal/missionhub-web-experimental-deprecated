@@ -3,6 +3,7 @@
 
   angular
     .module('missionhub.people.card', [
+      'missionhub.shared',
       'missionhub.utils'
     ]);
 
