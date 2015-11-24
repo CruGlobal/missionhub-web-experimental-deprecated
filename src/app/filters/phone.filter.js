@@ -10,7 +10,7 @@
           return '';
         }
 
-        var tel = tel.toString().trim()
+        tel = tel.toString().trim();
         var value = tel.replace(/\D/g, '');
 
         var country, city, number;

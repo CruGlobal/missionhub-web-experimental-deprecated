@@ -1,7 +1,10 @@
 <md-card>
   <md-card-content>
     <div layout="row">
-      <span><img class="profile-picture" src="{{card.person.picture}}?width=100&height=100" alt="Profile Picture"></span>
+      <img class="profile-picture" ng-src="{{card.person.picture}}?width=100&height=100" alt="Profile Picture" ng-if="card.person.picture !== undefined && card.person.picture !== null">
+      <div class="initials" ng-if="card.person.picture === null" color-this="background-color" color="card.person.full_name">
+        {{card.person.first_name[0]}}{{card.person.last_name[0]}}
+      </div>
       <div layout="column" flex>
         <div layout="column" layout-gt-md="row">
           <div layout="row" flex>

@@ -20,7 +20,8 @@
     "lodash": "~3.10.1",
     "moment": "~2.10.3",
     "missionhub-js": "~0.0.3",
-    "angular-environment": "~1.0.2"
+    "angular-environment": "~1.0.2",
+    "angular-color-this": "https://github.com/eknowles/angular-color-this.git"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0",
@@ -29,5 +30,10 @@
   "resolutions": {
     "angular": "~1.4.0",
     "angular-material": "~1.0.0-rc1"
+  },
+  "overrides": {
+    "angular-color-this": {
+      "main": ["dist/angular-color-this.js"]
+    }
   }
 }

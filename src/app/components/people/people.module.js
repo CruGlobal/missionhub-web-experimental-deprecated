@@ -5,7 +5,9 @@
     .module('missionhub.people', [
       'md.data.table',
       'missionhub.people.card',
-      'missionhub.people.import'
+      'missionhub.people.import',
+
+      'ngColorThis'
     ]);
 
 })();

@@ -5,9 +5,22 @@ person-card .page-header {
   }
 }
 
-person-card .profile-picture{
-  margin-right: 1em;
+person-card .profile-picture, .initials{
+  width: 100px;
+  height: 100px;
+  margin-right: 15px;
 }
+.initials{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  color: #FFFFFF;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
 
 h1 > md-input-container {
   padding-bottom: 0;
