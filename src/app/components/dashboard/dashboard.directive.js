@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function DashboardController() {
+    function DashboardController($mdDialog) {
       var vm = this;
       vm.showCardDetails = showCardDetails;
 
@@ -31,7 +31,35 @@
 
       }
 
-      function showCardDetails(){
+      function showCardDetails(label){
+        $mdDialog.show({
+          templateUrl: 'app/components/dashboard/label.modal.html',
+          controller: LabelModalController,
+          controllerAs: 'labelModal',
+          bindToController: true,
+          parent: angular.element(document.body),
+          clickOutsideToClose:true,
+          locals: {
+            label: label
+          }
+        });
+
+        /** @ngInject */
+        function LabelModalController($mdDialog, $state) {
+          var vm = this;
+          vm.close = close;
+          vm.viewAll = viewAll;
+
+          function close() {
+            $mdDialog.hide();
+          }
+
+          function viewAll(){
+            $mdDialog.hide();
+            $state.go('people.index')
+          }
+        }
+
       }
 
       vm.labels = [
@@ -43,7 +71,11 @@
         },
         {
           name: 'Discipleship',
-          leader: 'Rhonda Kelleher',
+          leaders: [
+            'Rhonda Kelleher',
+            'Garry Knutson',
+            'Christine Vandyke'
+          ],
           count: 15,
           location: 'On Campus'
         },
@@ -55,7 +87,11 @@
         },
         {
           name: 'Freshmen Bible Study',
-          leader: 'Robin Martin',
+          leaders: [
+            'Robin Martin',
+            'Micheal Poe'
+
+          ],
           count: 8,
           location: 'South Dorm',
           surveys: ['Welcome Week Survey', 'Leadership Application'],
@@ -63,28 +99,36 @@
         },
         {
           name: 'Upper Classmen',
-          leader: 'Natalie Spencer',
+          leaders: [
+            'Natalie Spencer'
+          ],
           count: 7,
           location: 'Natalie\'s Apt',
           surveys: ['Welcome Week Survey', 'Leadership Application']
         },
         {
           name: 'Greek',
-          leader: 'Jerry Tucker',
+          leaders: [
+            'Jerry Tucker'
+          ],
           count: 4,
           location: 'Greek Row',
           surveys: ['Welcome Week Survey', 'Leadership Application']
         },
         {
           name: 'Athletes in Action',
-          leader: 'Marion Crutcher',
+          leaders: [
+            'Marion Crutcher'
+          ],
           count: 30,
           location: 'Lecture Hall',
           surveys: []
         },
         {
           name: 'Outreach Team',
-          leader: 'Archie Rodriguez',
+          leaders: [
+            'Archie Rodriguez'
+          ],
           count: 5,
           location: 'Quad',
           surveys: ['Perspectives Outreach']

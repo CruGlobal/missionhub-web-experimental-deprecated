@@ -1,0 +1,87 @@
+<md-dialog class="label-dialog" aria-label="Mango (Fruit)"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools dialog-heading" color-this="background-color" color="labelModal.label.name">
+        <h2>{{labelModal.label.name}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="labelModal.close()">
+          <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content" layout="row" layout-align="center">
+        <md-button class="md-raised">
+          <ng-md-icon icon="email" style="fill: #dd4e41"></ng-md-icon>
+          Email All
+        </md-button>
+        <md-button class="md-raised">
+          <ng-md-icon icon="textsms" style="fill: #159F5C"></ng-md-icon>
+          Text All
+        </md-button>
+        <md-button class="md-raised">
+          <md-icon md-svg-icon="groupme" aria-label="GroupMe Logo"></md-icon>
+          GroupMe
+        </md-button>
+      </div>
+      <div class="md-dialog-content" layout="row" layout-align="space-between">
+        <div ng-if="labelModal.label.leaders && labelModal.label.leaders.length > 0" layout="row">
+          <ng-md-icon class="icon-no-margin" icon="person" size="20"></ng-md-icon>
+          <div layout="column">
+            <span class="md-body-2">Leaders</span>
+            <span ng-repeat="leader in labelModal.label.leaders">{{leader}}</span>
+          </div>
+        </div>
+        <div ng-if="labelModal.label.location"  layout="row">
+          <ng-md-icon class="icon-no-margin" icon="place" size="20"></ng-md-icon>
+          <div layout="column">
+            <span class="md-body-2">Location</span>
+            <span>{{labelModal.label.location}}</span>
+          </div>
+        </div>
+        <div ng-if="labelModal.label.surveys && labelModal.label.surveys.length > 0" layout="row">
+          <ng-md-icon class="icon-no-margin" icon="assignment" size="20"></ng-md-icon>
+          <div layout="column">
+            <span class="md-body-2">Surveys</span>
+            <span ng-repeat="survey in labelModal.label.surveys">{{survey}}</span>
+          </div>
+        </div>
+      </div>
+      <md-divider></md-divider>
+      <md-data-table-toolbar layout="row" layout-align="space-between">
+        <h2 class="md-body-1">People with <span class="md-body-2">{{labelModal.label.name}}</span> label</h2>
+        <span flex></span>
+        <h2 class="md-body-1">40 Total - 20 Uncontacted</h2>
+      </md-data-table-toolbar>
+      <md-data-table-container>
+        <table md-data-table md-row-select="people.selected" md-progress="people.peoplePromise">
+          <thead md-order="people.query.order" md-trigger="people.onOrderChange">
+          <tr>
+            <th name="Name"></th>
+            <th name="Email"></th>
+            <th name="Phone"></th>
+            <th name="Status"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr md-auto-select ng-repeat="temp in [1, 2, 3]">
+            <td>Scotty Waggoner</td>
+            <td>scotty.waggoner@cru.org</td>
+            <td>(123) 456-7890</td>
+            <td>Uncontacted</td>
+          </tr>
+          </tbody>
+        </table>
+      </md-data-table-container>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng-click="labelModal.viewAll()" md-autofocus>
+        View in people list
+      </md-button>
+      <span flex></span>
+      <md-button ng-click="labelModal.close()">
+        Close
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
