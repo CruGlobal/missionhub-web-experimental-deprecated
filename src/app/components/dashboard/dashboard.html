@@ -2,7 +2,7 @@
   <div class="row" style="padding-top: 30px">
     <div class="col-md-3" ng-repeat="label in dashboard.labels">
       <div class="panel panel-default" ng-click="dashboard.showCardDetails(label)">
-        <div class="panel-heading" color-this="background-color" color="label.name" style="background-image: url({{label.locationImg}})" ng-class="{'map-bkgd': label.locationImg}">
+        <div class="panel-heading" color-this="background-color border-top-color" color="label.name" style="background-image: url({{label.locationImg}})" ng-class="{'map-bkgd': label.locationImg}">
           <div>{{label.name}}</div>
           <div class="badge badge-label-count pull-right">
             {{label.count}}
