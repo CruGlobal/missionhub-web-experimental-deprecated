@@ -49,6 +49,8 @@
           var vm = this;
           vm.close = close;
           vm.viewAll = viewAll;
+          vm.sendText = sendText;
+          vm.sendEmail = sendEmail;
 
           function close() {
             $mdDialog.hide();
@@ -57,6 +59,14 @@
           function viewAll(){
             $mdDialog.hide();
             $state.go('people.index')
+          }
+
+          function sendEmail(person){
+            console.log('sent email');
+          }
+
+          function sendText(person){
+            console.log('sent text');
           }
         }
 
@@ -67,7 +77,40 @@
           name: 'Involved',
           count: 55,
           location: 'Student Center',
-          surveys: ['Welcome Week Survey', 'Leadership Application']
+          surveys: ['Welcome Week Survey', 'Leadership Application'],
+          people: [
+            {
+              name: 'David Donovan',
+              phone: '507-495-1916',
+              email: 'DavidADonovan@jourrapide.com',
+              picture: 'https://graph.facebook.com/v2.5/704802237/picture'
+            },
+            {
+              name: 'Andrew Owens',
+              phone: '530-879-3383',
+              email: 'AndrewJOwens@dayrep.com'
+            },
+            {
+              name: 'Lisa Shore',
+              phone: '216-518-9651',
+              email: 'LisaAShore@rhyta.com'
+            },
+            {
+              name: 'Sheila Jackson',
+              phone: '301-793-3261',
+              email: 'SheilaLJackson@armyspy.com'
+            },
+            {
+              name: 'Geraldine Haynes',
+              phone: '803-320-4277',
+              email: 'GeraldineRHaynes@dayrep.com'
+            },
+            {
+              name: 'John N. Ferry',
+              phone: '989-722-1676',
+              email: 'JohnNFerry@teleworm.us'
+            }
+          ]
         },
         {
           name: 'Discipleship',
@@ -95,7 +138,40 @@
           count: 8,
           location: 'South Dorm',
           surveys: ['Welcome Week Survey', 'Leadership Application'],
-          locationImg: 'https://maps.googleapis.com/maps/api/staticmap?center=28.603546,-81.204751&zoom=18&size=720x200&key=AIzaSyBs8ow6oJrRQUJ2mSotRvDs_F51xeij17A'
+          locationImg: 'https://maps.googleapis.com/maps/api/staticmap?center=28.603546,-81.204751&zoom=18&size=720x200&key=AIzaSyBs8ow6oJrRQUJ2mSotRvDs_F51xeij17A',
+          people: [
+            {
+              name: 'David Donovan',
+              phone: '507-495-1916',
+              email: 'DavidADonovan@jourrapide.com',
+              picture: 'https://graph.facebook.com/v2.5/704802237/picture'
+            },
+            {
+              name: 'Andrew Owens',
+              phone: '530-879-3383',
+              email: 'AndrewJOwens@dayrep.com'
+            },
+            {
+              name: 'Lisa Shore',
+              phone: '216-518-9651',
+              email: 'LisaAShore@rhyta.com'
+            },
+            {
+              name: 'Sheila Jackson',
+              phone: '301-793-3261',
+              email: 'SheilaLJackson@armyspy.com'
+            },
+            {
+              name: 'Geraldine Haynes',
+              phone: '803-320-4277',
+              email: 'GeraldineRHaynes@dayrep.com'
+            },
+            {
+              name: 'John N. Ferry',
+              phone: '989-722-1676',
+              email: 'JohnNFerry@teleworm.us'
+            }
+          ]
         },
         {
           name: 'Upper Classmen',

@@ -16,7 +16,7 @@
           Email All
         </md-button>
         <md-button class="md-raised">
-          <ng-md-icon icon="textsms" style="fill: #159F5C"></ng-md-icon>
+          <ng-md-icon icon="message" style="fill: #159F5C"></ng-md-icon>
           Text All
         </md-button>
         <md-button class="md-raised">
@@ -48,31 +48,25 @@
         </div>
       </div>
       <md-divider></md-divider>
-      <md-data-table-toolbar layout="row" layout-align="space-between">
-        <h2 class="md-body-1">People with <span class="md-body-2">{{labelModal.label.name}}</span> label</h2>
-        <span flex></span>
-        <h2 class="md-body-1">40 Total - 20 Uncontacted</h2>
-      </md-data-table-toolbar>
-      <md-data-table-container>
-        <table md-data-table md-row-select="people.selected" md-progress="people.peoplePromise">
-          <thead md-order="people.query.order" md-trigger="people.onOrderChange">
-          <tr>
-            <th name="Name"></th>
-            <th name="Email"></th>
-            <th name="Phone"></th>
-            <th name="Status"></th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr md-auto-select ng-repeat="temp in [1, 2, 3]">
-            <td>Scotty Waggoner</td>
-            <td>scotty.waggoner@cru.org</td>
-            <td>(123) 456-7890</td>
-            <td>Uncontacted</td>
-          </tr>
-          </tbody>
-        </table>
-      </md-data-table-container>
+
+      <md-list>
+        <md-subheader class="md-no-sticky">People with <strong>{{labelModal.label.name}}</strong> label</md-subheader>
+        <md-list-item ng-repeat="person in labelModal.label.people" ng-click="goToPerson(labelModal.label.people.id, $event)">
+          <img class="md-avatar" ng-src="{{person.picture}}?width=100&height=100" alt="Profile Picture for {{ person.name }}" ng-if="person.picture !== undefined && person.picture !== null">
+          <initials
+            ng-if="person.picture == null"
+            class="md-avatar"
+            first="person.name.split(' ')[0][0]"
+            last="person.name.split(' ')[1][0]"
+            full-name="person.name">
+          </initials>
+          <p>{{ person.name }}</p>
+          <div class="md-secondary">
+            <ng-md-icon icon="email" ng-click="labelModal.sendEmail(person)" aria-label="Send Email" class=""></ng-md-icon>
+            <ng-md-icon icon="message" ng-click="labelModal.sendText(person)" aria-label="Send Text" class=""></ng-md-icon>
+          </div>
+        </md-list-item>
+      </md-list>
     </md-dialog-content>
     <md-dialog-actions layout="row">
       <md-button ng-click="labelModal.viewAll()" md-autofocus>

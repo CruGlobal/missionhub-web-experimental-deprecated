@@ -29,7 +29,7 @@
   },
   "resolutions": {
     "angular": "~1.4.0",
-    "angular-material": "~1.0.0-rc1"
+    "angular-material": "~1.0.0-rc4"
   },
   "overrides": {
     "angular-color-this": {
