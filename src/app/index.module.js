@@ -5,7 +5,6 @@
     .module('missionhub', [
       //vendor modules
       'ngAnimate',
-      'ngCookies',
       'ngTouch',
       'ngSanitize',
       'restangular',

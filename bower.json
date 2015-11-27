@@ -2,11 +2,10 @@
   "name": "missionhub",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.4.0",
-    "angular-animate": "~1.4.0",
-    "angular-cookies": "~1.4.0",
-    "angular-touch": "~1.4.0",
-    "angular-sanitize": "~1.4.0",
+    "angular": "~1.5.0-beta.2",
+    "angular-animate": "~1.5.0-beta.2",
+    "angular-touch": "~1.5.0-beta.2",
+    "angular-sanitize": "~1.5.0-beta.2",
     "angular-ui-router": "~0.2.15",
     "angular-material": "~1.0.0-rc5",
     "angular-material-icons": "~0.6.0",
@@ -28,7 +27,7 @@
     "jquery": "~2.1.4"
   },
   "resolutions": {
-    "angular": "~1.4.0",
+    "angular": "~1.5.0-beta.2",
     "angular-material": "~1.0.0-rc5"
   },
   "overrides": {
