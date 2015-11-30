@@ -1,0 +1,26 @@
+label-card {
+  .panel {
+    &:focus {
+      outline: 0;
+    }
+    .panel-heading {
+      color: #FFFFFF;
+      font-size: 24px;
+      border-top-width: 4px;
+      border-top-style: solid;
+      &.map-bkgd {
+        color: #000;
+        background-size: cover;
+      }
+      .badge.badge-label-count {
+        font-size: 18px;
+        background-color: #f9b625;
+        border-radius: 4px;
+        ng-md-icon {
+          height: 18px;
+          width: 18px;
+        }
+      }
+    }
+  }
+ }

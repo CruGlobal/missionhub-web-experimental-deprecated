@@ -60,6 +60,7 @@
       },
       {
         name: 'Discipleship',
+        involvement: 'member',
         leaders: [
           'Rhonda Kelleher',
           'Garry Knutson',
@@ -76,6 +77,7 @@
       },
       {
         name: 'Freshmen Bible Study',
+        involvement: 'leader',
         leaders: [
           'Robin Martin',
           'Micheal Poe'
@@ -148,6 +150,7 @@
       },
       {
         name: 'Outreach Team',
+        involvement: 'member',
         leaders: [
           'Archie Rodriguez'
         ],

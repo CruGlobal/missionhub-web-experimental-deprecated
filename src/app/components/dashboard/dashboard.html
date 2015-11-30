@@ -1,6 +1,25 @@
 <div class="container label-list">
-  <div class="row" style="padding-top: 30px">
-    <div class="col-md-3" ng-repeat="label in dashboard.labels">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Groups I Lead</h1>
+    </div>
+    <div class="col-md-3" ng-repeat="label in dashboard.labels | filter:{involvement:'leader'}">
+      <label-card data="label"></label-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Groups I am a member of</h1>
+    </div>
+    <div class="col-md-3" ng-repeat="label in dashboard.labels | filter:{involvement:'member'}">
+      <label-card data="label"></label-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Other Groups</h1>
+    </div>
+    <div class="col-md-3" ng-repeat="label in dashboard.labels | filter:{involvement:'!leader'} | filter:{involvement:'!member'}">
       <label-card data="label"></label-card>
     </div>
   </div>
