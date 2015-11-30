@@ -1,0 +1,32 @@
+<div class="panel panel-default" ng-click="labelCard.showCardDetails(labelCard.data)">
+  <div class="panel-heading" color-this="background-color border-top-color" color="labelCard.data.name" style="background-image: url({{labelCard.data.locationImg}})" ng-class="{'map-bkgd': labelCard.data.locationImg}">
+    <div>{{labelCard.data.name}}</div>
+    <div class="badge badge-label-count pull-right">
+      {{labelCard.data.count}}
+      <ng-md-icon icon="group" size="18"></ng-md-icon>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p ng-if="labelCard.data.leaders && labelCard.data.leaders.length > 0">
+      <ng-md-icon icon="person" size="20"></ng-md-icon>
+      <ng-pluralize count="labelCard.data.leaders.length" offset="1"
+                    when="{'0': 'No leaders',
+                                '1': '{{labelCard.data.leaders[0]}}',
+                                'one': '{{labelCard.data.leaders[0]}} and one other',
+                                'other': '{{labelCard.data.leaders[0]}} and {} others'}">
+      </ng-pluralize>
+    </p>
+    <p ng-if="labelCard.data.location">
+      <ng-md-icon icon="place" size="20"></ng-md-icon>
+      {{labelCard.data.location}}
+    </p>
+    <p ng-if="labelCard.data.surveys && labelCard.data.surveys.length > 0">
+      <ng-md-icon icon="assignment" size="20"></ng-md-icon>
+      <ng-pluralize count="labelCard.data.surveys.length"
+                    when="{'0': 'No surveys',
+                                'one': labelCard.data.surveys[0],
+                                'other': '{} surveys'}">
+      </ng-pluralize>
+    </p>
+  </div>
+</div>
