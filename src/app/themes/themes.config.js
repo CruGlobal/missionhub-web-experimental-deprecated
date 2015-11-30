@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('missionhub')
+    .module('missionhub.themes')
     .config(config);
 
   /** @ngInject */

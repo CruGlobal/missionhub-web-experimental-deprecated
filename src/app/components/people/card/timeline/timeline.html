@@ -109,7 +109,7 @@
     <p ng-if="!event.edit">
       <small class="text-muted">
         <i class="glyphicon glyphicon-time"></i>
-        Created {{timeline.moment(event.created_at).fromNow()}}
+        {{timeline.moment(event.timestamp).fromNow()}}
         - Visible to everyone in {{event.organization.name}}
         <span ng-if="event.creator"> - Created by <a ui-sref="people.card({personId: event.creator.id})">{{event.creator.name}}</a></span>
       </small>
