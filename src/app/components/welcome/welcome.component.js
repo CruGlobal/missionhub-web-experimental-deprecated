@@ -13,6 +13,7 @@
     var vm = this;
     vm.authenticate = authenticate;
     vm.authenticating = false;
+    vm.error = false;
 
     activate();
 
@@ -23,14 +24,15 @@
     }
 
     function authenticate(provider){
+      vm.error = false;
       vm.authenticating = true;
       authenticator.authenticate(provider)
         .then(function(){
           vm.authenticating = false;
         })
         .catch(function(){
-          //TODO: error handling
           vm.authenticating = false;
+          vm.error = true;
         });
     }
   }

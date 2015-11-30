@@ -1,6 +1,11 @@
 <div layout="row" layout-align="center start">
   <md-card>
     <md-progress-linear md-mode="indeterminate" class="md-accent" ng-if="welcome.authenticating"></md-progress-linear>
+    <div ng-if="welcome.error" class="sign-in-error">
+        <ng-md-icon icon="warning"></ng-md-icon>
+        There was an error signing in.<br>
+        Please try again.
+    </div>
     <md-card-content layout="column">
       <md-button class="md-raised social-sign-in" ng-click="welcome.authenticate('google')">
         <md-icon md-svg-icon="google" aria-label="Google Logo"></md-icon>
