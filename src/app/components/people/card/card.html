@@ -1,9 +1,9 @@
 <md-card>
   <md-card-content>
     <div layout="row">
-      <img class="profile-picture" ng-src="{{card.person.picture}}?width=100&height=100" alt="Profile Picture" ng-if="card.person.picture !== undefined && card.person.picture !== null">
+      <img class="profile-picture" ng-src="{{card.person.picture}}?width=100&height=100" alt="Profile Picture" ng-if="card.person.picture">
       <initials
-        ng-if="card.person.picture === null"
+        ng-if="!card.person.picture"
         first="card.person.first_name[0]"
         last="card.person.last_name[0]"
         full-name="card.person.full_name">

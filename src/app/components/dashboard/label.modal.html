@@ -49,22 +49,20 @@
       </div>
       <md-divider></md-divider>
 
-      <md-list>
+      <md-list ng-if="labelModal.label.people && labelModal.label.people.length > 0">
         <md-subheader class="md-no-sticky">People with <strong>{{labelModal.label.name}}</strong> label</md-subheader>
-        <md-list-item ng-repeat="person in labelModal.label.people" ng-click="goToPerson(labelModal.label.people.id, $event)">
-          <img class="md-avatar" ng-src="{{person.picture}}?width=100&height=100" alt="Profile Picture for {{ person.name }}" ng-if="person.picture !== undefined && person.picture !== null">
+        <md-list-item ng-repeat="person in labelModal.label.people" ng-click="labelModal.goToPerson(labelModal.label.people.id)">
+          <img class="md-avatar" ng-src="{{person.picture}}?width=100&height=100" alt="Profile Picture for {{ person.name }}" ng-if="person.picture">
           <initials
-            ng-if="person.picture == null"
+            ng-if="!person.picture"
             class="md-avatar"
             first="person.name.split(' ')[0][0]"
             last="person.name.split(' ')[1][0]"
             full-name="person.name">
           </initials>
           <p>{{ person.name }}</p>
-          <div class="md-secondary">
-            <ng-md-icon icon="email" ng-click="labelModal.sendEmail(person)" aria-label="Send Email" class=""></ng-md-icon>
-            <ng-md-icon icon="message" ng-click="labelModal.sendText(person)" aria-label="Send Text" class=""></ng-md-icon>
-          </div>
+          <ng-md-icon icon="email" ng-click="labelModal.sendEmail(person)" aria-label="Send Email" class="md-secondary"></ng-md-icon>
+          <ng-md-icon icon="message" ng-click="labelModal.sendText(person)" aria-label="Send Text" class="md-secondary"></ng-md-icon>
         </md-list-item>
       </md-list>
     </md-dialog-content>

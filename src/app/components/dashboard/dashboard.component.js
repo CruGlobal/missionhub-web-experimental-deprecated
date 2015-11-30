@@ -37,6 +37,7 @@
         var vm = this;
         vm.close = close;
         vm.viewAll = viewAll;
+        vm.goToPerson = goToPerson;
         vm.sendText = sendText;
         vm.sendEmail = sendEmail;
 
@@ -47,6 +48,10 @@
         function viewAll(){
           $mdDialog.hide();
           $state.go('people.index')
+        }
+
+        function goToPerson(person){
+          console.log('navigating to person');
         }
 
         function sendEmail(person){
