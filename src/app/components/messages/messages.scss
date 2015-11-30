@@ -1,0 +1,17 @@
+messages {
+  .card-input {
+    margin: 0;
+    padding: 16px 16px;
+    input, textarea {
+      border: none;
+    }
+  }
+  md-chips.card-input{
+    padding: 7px 16px;
+    & > md-chips-wrap.md-chips {
+      &, &.md-focused {
+        box-shadow: none;
+      }
+    }
+  }
+}

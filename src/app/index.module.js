@@ -19,6 +19,7 @@
       'missionhub.welcome',
       'missionhub.dashboard',
       'missionhub.people',
+      'missionhub.messages',
 
       //app service modules
       'missionhub.auth',

@@ -1,0 +1,111 @@
+<div layout="row" layout-align="start start">
+  <md-card flex="25">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>Messages</span>
+        </h2>
+        <span flex></span>
+        <md-button aria-label="New Message">
+          New Message
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-list>
+      <md-subheader class="md-no-sticky">Drafts</md-subheader>
+      <md-list-item class="md-3-line" ng-click="messages.openThread()">
+        <initials
+          class="md-avatar"
+          style="font-size: 20px;"
+          first="'F'"
+          last="'B'"
+          full-name="'Freshmen Bible Study'">
+        </initials>
+        <div class="md-list-item-text" layout="column">
+          <h3>Freshmen Study</h3>
+          <h4>Event on Friday</h4>
+          <p>Come join us for a game night...</p>
+        </div>
+        <div>
+          Oct 3rd
+        </div>
+      </md-list-item>
+      <md-subheader class="md-no-sticky">Sent Messages</md-subheader>
+      <md-list-item class="md-3-line" ng-repeat="temp in [1,2,3]" ng-click="messages.openThread()">
+        <initials
+          class="md-avatar"
+          style="font-size: 20px;"
+          first="'F'"
+          last="'B'"
+          full-name="'Freshmen Bible Study'">
+        </initials>
+        <div class="md-list-item-text" layout="column">
+          <h3>Freshmen Study</h3>
+          <h4>Event on Friday</h4>
+          <p>Come join us for a game night...</p>
+        </div>
+        <div>
+          Sep 29th
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-card>
+  <md-card flex>
+    <md-toolbar md-theme="cruSand">
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>New Email</span>
+        </h2>
+        <span flex></span>
+        <md-button aria-label="Change message type">
+          Change type to text message
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-chips class="card-input" ng-model="messages.groups" md-autocomplete-snap md-require-match="true" ng-init="messages.groups = {name:'Group'}">
+      <md-autocomplete
+        md-selected-item="personLabels.selectedLabel"
+        md-search-text="personLabels.labelSearchText"
+        md-items="item in personLabels.labelSearch(personLabels.labelSearchText)"
+        md-item-text="item.name"
+        md-autoselect="true"
+        md-min-length="0"
+        placeholder="Type person or label">
+        <md-item-template>
+          <span md-highlight-text="personLabels.labelSearchText" md-highlight-flags="i">{{item}}</span>
+        </md-item-template>
+        <md-not-found>
+          Person or group not found.
+        </md-not-found>
+      </md-autocomplete>
+      <md-chip-template>
+        <span>{{$chip}}</span>
+      </md-chip-template>
+    </md-chips>
+    <md-divider></md-divider>
+
+    <md-input-container class="md-block card-input" md-no-float>
+      <strong>
+        <input ng-model="messages.subject" placeholder="Subject">
+      </strong>
+    </md-input-container>
+    <md-divider></md-divider>
+
+    <md-input-container class="md-block card-input" md-no-float>
+      <textarea ng-model="messages.message" placeholder="Message"></textarea>
+    </md-input-container>
+    <md-divider></md-divider>
+
+    <md-card-actions layout="row" layout-align="end center" class="message-bottom-toolbar">
+      <md-button>
+        <ng-md-icon icon="delete"></ng-md-icon>
+        Discard
+      </md-button>
+      <md-button>
+        <ng-md-icon icon="send"></ng-md-icon>
+        Send
+      </md-button>
+    </md-card-actions>
+  </md-card>
+</div>

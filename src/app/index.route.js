@@ -22,6 +22,11 @@
         template: '<ui-view/>',
         abstract: true,
         authenticate: true
+      })
+      .state('messages', {
+        url: '/messages',
+        template: '<messages></messages>',
+        authenticate: true
       });
 
     $urlRouterProvider.otherwise('/');

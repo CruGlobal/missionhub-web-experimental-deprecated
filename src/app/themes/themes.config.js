@@ -17,6 +17,7 @@
     $mdThemingProvider.definePalette('cruDeepBlue', {"50":"#e6f1f5","100":"#b3d5e0","200":"#80b9cc","300":"#55a2ba","400":"#2a8aa9","500":"#007398","600":"#006585","700":"#005672","800":"#00485f","900":"#003a4c","A100":"#b3d5e0","A200":"#80b9cc","A400":"#2a8aa9","A700":"#005672", 'contrastDefaultColor': 'light'});
     $mdThemingProvider.definePalette('cruBrightBlue', {"50":"#ecf7fa","100":"#c5e8ef","200":"#9fd8e4","300":"#7ecbda","400":"#5ebed1","500":"#3eb1c8","600":"#369baf","700":"#2f8596","800":"#276f7d","900":"#1f5964","A100":"#c5e8ef","A200":"#9fd8e4","A400":"#5ebed1","A700":"#2f8596"});
     $mdThemingProvider.definePalette('cruGray', {"50":"#f0efef","100":"#d1cfd0","200":"#b3b0b1","300":"#999596","400":"#7f7a7c","500":"#666062","600":"#595456","700":"#4d484a","800":"#403c3d","900":"#333031","A100":"#d1cfd0","A200":"#b3b0b1","A400":"#7f7a7c","A700":"#4d484a", 'contrastDefaultColor': 'light'});
+    $mdThemingProvider.definePalette('cruSand', {"50":"#ffffff","100":"#ffffff","200":"#ffffff","300":"#ffffff","400":"#ffffff","500":"#f4f4f4","600":"#e5e5e5","700":"#d5d5d5","800":"#c6c6c6","900":"#b7b7b7","A100":"#ffffff","A200":"#ffffff","A400":"#ffffff","A700":"#d5d5d5"});
 
     $mdThemingProvider.theme('cruGold')
       .primaryPalette('cruGold')
@@ -40,6 +41,10 @@
 
     $mdThemingProvider.theme('cruGray')
       .primaryPalette('cruGray')
+      .accentPalette('cruGold');
+
+    $mdThemingProvider.theme('cruSand')
+      .primaryPalette('cruSand')
       .accentPalette('cruGold');
 
     $mdThemingProvider.setDefaultTheme('cruGold');
