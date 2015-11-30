@@ -9,7 +9,7 @@
     });
 
   /** @ngInject */
-  function DashboardController($mdDialog) {
+  function DashboardController() {
     var vm = this;
 
     activate();

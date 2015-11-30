@@ -50,7 +50,7 @@
 
         function viewAll(){
           $mdDialog.hide();
-          $state.go('people.index')
+          $state.go('people.index');
         }
 
         function goToPerson(person){

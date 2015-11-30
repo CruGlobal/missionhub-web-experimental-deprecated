@@ -25,6 +25,9 @@ md-toolbar.cruNavbar:not(.md-menu-toolbar){
     align-items: center;
     @extend .no-text-transform;
     color: #3a3a3a;
+    &.active{
+      background-color: $colorGrayscale-stone;
+    }
   }
 
 }
