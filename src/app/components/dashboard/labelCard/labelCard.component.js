@@ -32,7 +32,8 @@
         clickOutsideToClose:true,
         locals: {
           label: label
-        }
+        },
+        fullscreen: true
       });
 
       /** @ngInject */
