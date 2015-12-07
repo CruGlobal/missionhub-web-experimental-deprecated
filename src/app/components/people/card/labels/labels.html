@@ -1,6 +1,5 @@
 <md-chips ng-model="personLabels.labels" md-autocomplete-snap md-require-match="true">
   <md-autocomplete
-    md-selected-item="personLabels.selectedLabel"
     md-search-text="personLabels.labelSearchText"
     md-items="item in personLabels.labelSearch(personLabels.labelSearchText)"
     md-item-text="item.name"

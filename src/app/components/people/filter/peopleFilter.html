@@ -1,0 +1,37 @@
+<md-chips ng-model="peopleFilter.filters"
+          md-autocomplete-snap
+          md-transform-chip="peopleFilter.transformChip($chip)">
+  <md-autocomplete
+    md-search-text="fieldSearchText"
+    md-items="item in peopleFilter.autocompleteFieldQuery(fieldSearchText)"
+    md-item-text="item.name"
+    md-min-length="0"
+    placeholder="Search">
+    <md-item-template>
+      <span md-highlight-text="fieldSearchText" md-highlight-flags="i">{{item.name}}</span>
+    </md-item-template>
+  </md-autocomplete>
+  <md-chip-template>
+    <div ng-switch="$chip.type">
+      <div layout="row" ng-switch-when="filter">
+        {{$chip.name}}:
+        <md-autocomplete
+          md-search-text="fieldValueSearchText"
+          md-items="item in peopleFilter.searchPossibleValues($chip.possibilities, fieldValueSearchText)"
+          md-item-text="item.name"
+          md-selected-item="$chip.value"
+          md-select-on-match="true"
+          md-min-length="0"
+          placeholder="Choose one">
+          <md-item-template>
+            <span md-highlight-text="fieldValueSearchText" md-highlight-flags="i">{{item.name}}</span>
+          </md-item-template>
+          <md-not-found>
+            Value not found.
+          </md-not-found>
+        </md-autocomplete>
+      </div>
+      <span ng-switch-when="search">Search: {{$chip.name}}</span>
+    </div>
+  </md-chip-template>
+</md-chips>

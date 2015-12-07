@@ -1,0 +1,10 @@
+md-chip{
+  md-autocomplete, md-autocomplete-wrap, md-autocomplete input:not(.md-input){
+    background: none !important;
+    height: 32px;
+    line-height: 32px;
+    .md-whiteframe-z1{
+      box-shadow: none;
+    }
+  }
+}

@@ -1,17 +1,14 @@
 <md-card>
   <md-card-content>
-    <md-data-table-toolbar layout="row" layout-align="space-between">
-      <div flex>
-        <md-input-container md-no-float>
-          <ng-md-icon icon="search"></ng-md-icon>
-          <input ng-model="user.title" placeholder="Search">
-        </md-input-container>
-      </div>
+
+    <div layout="row" layout-align="space-between">
+      <ng-md-icon icon="search"></ng-md-icon>
+      <people-filter flex filters="people.filters"></people-filter>
       <div>
         <md-button ui-sref="people.import">Import</md-button>
         <md-button ui-sref="people.export">Export</md-button>
       </div>
-    </md-data-table-toolbar>
+    </div>
 
     <md-data-table-container>
       <table md-data-table md-row-select="people.selected" md-progress="people.peoplePromise">

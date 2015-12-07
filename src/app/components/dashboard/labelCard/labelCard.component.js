@@ -28,7 +28,6 @@
         controller: LabelModalController,
         controllerAs: 'labelModal',
         bindToController: true,
-        parent: angular.element(document.body),
         clickOutsideToClose:true,
         locals: {
           label: label
