@@ -11,7 +11,7 @@
       <span md-highlight-text="fieldSearchText" md-highlight-flags="i">{{item.name}}</span>
     </md-item-template>
   </md-autocomplete>
-  <md-chip-template>
+  <md-chip-template md-autocomplete-snap>
     <div ng-switch="$chip.type">
       <div layout="row" ng-switch-when="filter">
         {{$chip.name}}:
