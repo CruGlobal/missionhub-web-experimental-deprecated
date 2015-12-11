@@ -1,6 +1,8 @@
 <md-chips ng-model="peopleFilter.filters"
           md-autocomplete-snap
-          md-transform-chip="peopleFilter.transformChip($chip)">
+          md-transform-chip="peopleFilter.transformChip($chip)"
+          md-on-add="peopleFilter.selectAppendedChip()"
+          md-on-select="peopleFilter.selectChipAutocomplete()">
   <md-autocomplete
     md-search-text="fieldSearchText"
     md-items="item in peopleFilter.autocompleteFieldQuery(fieldSearchText)"
@@ -11,9 +13,9 @@
       <span md-highlight-text="fieldSearchText" md-highlight-flags="i">{{item.name}}</span>
     </md-item-template>
   </md-autocomplete>
-  <md-chip-template md-autocomplete-snap>
+  <md-chip-template>
     <div ng-switch="$chip.type">
-      <div layout="row" ng-switch-when="filter">
+      <div layout="row" ng-switch-when="filter" md-autocomplete-snap>
         {{$chip.name}}:
         <md-autocomplete
           md-search-text="fieldValueSearchText"

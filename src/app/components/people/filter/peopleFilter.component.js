@@ -12,11 +12,13 @@
     });
 
   /** @ngInject */
-  function PeopleFilterController(_, api) {
+  function PeopleFilterController(_, api, $element, $timeout) {
     var vm = this;
     vm.autocompleteFieldQuery = autocompleteFieldQuery;
     vm.transformChip = transformChip;
     vm.searchPossibleValues = searchPossibleValues;
+    vm.selectAppendedChip = selectAppendedChip;
+    vm.selectChipAutocomplete = selectChipAutocomplete;
 
     activate();
 
@@ -99,6 +101,22 @@
       return api.filters.possibilities[type]().then(function (possibilities){
         return fuzzyFilter(possibilities, query);
       });
+    }
+
+    function selectAppendedChip(){
+      $timeout(function(){
+        var mdChipsCtrl = angular.element($element[0].querySelector('md-chips')).controller('mdChips');
+        var lastChipIndex = mdChipsCtrl.items.length - 1;
+        mdChipsCtrl.selectAndFocusChipSafe(lastChipIndex);
+      });
+    }
+
+    function selectChipAutocomplete(){
+      var mdChipsCtrl = angular.element($element[0].querySelector('md-chips')).controller('mdChips');
+      var chipAutocomplete = $element[0].querySelector('md-chip[index="' + mdChipsCtrl.selectedChip + '"] input');
+      if(chipAutocomplete){
+        chipAutocomplete.focus();
+      }
     }
   }
 })();
