@@ -18,10 +18,11 @@
       <div layout="row" ng-switch-when="filter" md-autocomplete-snap>
         {{$chip.name}}:
         <md-autocomplete
+          ng-repeat="possibility in $chip.possibilities"
           md-search-text="fieldValueSearchText"
-          md-items="item in peopleFilter.searchPossibleValues($chip.possibilities, fieldValueSearchText)"
+          md-items="item in peopleFilter.searchPossibleValues(possibility, fieldValueSearchText, $chip.values)"
           md-item-text="item.name"
-          md-selected-item="$chip.value"
+          md-selected-item="$chip.values[$index]"
           md-select-on-match="true"
           md-min-length="0"
           placeholder="Choose one">

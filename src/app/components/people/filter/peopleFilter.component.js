@@ -31,42 +31,46 @@
         {
           name: 'Assigned To',
           type: 'filter',
-          possibilities: 'assignedTo'
+          possibilities: ['assignedTo']
         },
         {
           name: 'Interaction',
           type: 'filter',
-          possibilities: 'interactions'
+          possibilities: ['interactions']
         },
         {
           name: 'Group',
           type: 'filter',
-          possibilities: 'groups'
+          possibilities: ['groups']
         },
         {
           name: 'Follow-up Status',
           type: 'filter',
-          possibilities: 'status'
+          possibilities: ['status']
         },
         {
           name: 'Permissions',
           type: 'filter',
-          possibilities: 'permissions'
+          possibilities: ['permissions']
         },
         {
           name: 'Gender',
           type: 'filter',
-          possibilities: 'gender'
+          possibilities: ['gender']
         },
         {
           name: 'Faculty',
           type: 'filter',
-          possibilities: 'faculty'
+          possibilities: ['faculty']
         },
         {
           name: 'Survey',
           type: 'filter',
-          possibilities: 'surveys'
+          possibilities: [
+            'surveys',
+            'questions',
+            'answers'
+          ]
         }
       ];
 
@@ -97,8 +101,12 @@
       return { name: chip, type: 'search' };
     }
 
-    function searchPossibleValues(type, query) {
-      return api.filters.possibilities[type]().then(function (possibilities){
+    function searchPossibleValues(type, query, values) {
+      values = _.map(values, function(value){
+        return value ? value.name : null
+      });
+      console.log(values)
+      return api.filters.possibilities[type](values[0], values[1]).then(function (possibilities){
         return fuzzyFilter(possibilities, query);
       });
     }
