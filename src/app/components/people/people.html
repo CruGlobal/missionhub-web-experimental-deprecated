@@ -12,7 +12,7 @@
 
     <md-data-table-container>
       <table md-data-table md-row-select="people.selected" md-progress="people.peoplePromise">
-        <thead md-order="people.query.order" md-trigger="people.onOrderChange">
+        <thead md-order="people.query.order" md-trigger="people.loadPeople">
         <tr>
           <th name="First" order-by="first_name"></th>
           <th name="Last" order-by="last_name"></th>
@@ -33,6 +33,11 @@
       </table>
     </md-data-table-container>
 
-    <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{desserts.total}}" md-trigger="onPaginationChange"></md-data-table-pagination>
+    <md-data-table-pagination
+      md-row-select="[25, 50, 100, 500]"
+      md-limit="people.query.limit"
+      md-page="people.query.page"
+      md-total="{{people.total}}"
+      md-trigger="people.loadPeople"></md-data-table-pagination>
   </md-card-content>
 </md-card>
