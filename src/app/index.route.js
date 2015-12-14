@@ -26,6 +26,7 @@
       .state('messages', {
         url: '/messages',
         template: '<messages></messages>',
+        abstract: true,
         authenticate: true
       });
 
