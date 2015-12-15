@@ -103,9 +103,8 @@
 
     function searchPossibleValues(type, query, values) {
       values = _.map(values, function(value){
-        return value ? value.name : null
+        return value ? value.name : null;
       });
-      console.log(values)
       return api.filters.possibilities[type](values[0], values[1]).then(function (possibilities){
         return fuzzyFilter(possibilities, query);
       });

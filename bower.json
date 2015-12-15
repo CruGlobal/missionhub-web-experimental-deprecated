@@ -6,7 +6,7 @@
     "angular-animate": "~1.5.0-beta.2",
     "angular-sanitize": "~1.5.0-beta.2",
     "angular-ui-router": "~0.2.15",
-    "angular-material": "~1.0.0-rc7",
+    "angular-material": "~1.0.0",
     "angular-material-icons": "~0.6.0",
     "angular-material-data-table": "~0.8.14",
     "restangular": "~1.5.1",
@@ -27,7 +27,7 @@
   },
   "resolutions": {
     "angular": "~1.5.0-rc.0",
-    "angular-material": "~1.0.0-rc7"
+    "angular-material": "~1.0.0"
   },
   "overrides": {
     "angular-color-this": {
