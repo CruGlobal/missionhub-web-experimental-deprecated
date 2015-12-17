@@ -1,0 +1,57 @@
+<md-dialog class="interaction-dialog" aria-label="Interaction Details"  ng-cloak flex-md="75" flex-lg="55" flex-gt-lg="40">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools dialog-heading">
+        <display-event-title event="interaction.event"></display-event-title>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="interaction.close()">
+          <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div layout="row">
+          <md-input-container>
+            <label>Type</label>
+            <md-select ng-model="interaction.event.type">
+              <md-option ng-value="type" ng-repeat="type in interaction.interactionTypes">{{type}}</md-option>
+            </md-select>
+          </md-input-container>
+          <div flex></div>
+          <md-datepicker ng-model="interaction.timestampModel" ng-change="interaction.updateTimestamp()" md-placeholder="Date"></md-datepicker>
+        </div>
+        <div class="chips-margin-bottom">
+          <div class="input-label">Initiators</div>
+          <md-chips ng-model="interaction.event.initiators" md-autocomplete-snap
+                    md-require-match="true">
+            <md-autocomplete
+              md-search-text="searchText"
+              md-items="person in interaction.initiatorSearch(searchText)"
+              md-item-text="person.name"
+              md-min-length="0"
+              placeholder="Add Initiator">
+              <span md-highlight-text="searchText">{{person.name}}</span>
+            </md-autocomplete>
+            <md-chip-template>
+              {{$chip.name}}
+            </md-chip-template>
+          </md-chips>
+        </div>
+        <md-input-container class="md-block">
+          <label>Comment</label>
+          <textarea ng-model="interaction.event.comment"></textarea>
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="interaction.close()">
+        Cancel
+      </md-button>
+      <md-button ng-click="interaction.save()" class="md-primary">
+        Save
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

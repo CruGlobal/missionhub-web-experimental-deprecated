@@ -12,7 +12,7 @@
     });
 
   /** @ngInject */
-  function PersonLabelsController(_) {
+  function PersonLabelsController(_, search) {
     var vm = this;
     vm.labelSearch = labelSearch;
 
@@ -23,18 +23,7 @@
     }
 
     function labelSearch(query){
-      if(query === '' || query === null){
-        return allLabels;
-      }
-      query = query.toLowerCase();
-      return _.filter(allLabels, function(label){
-        return fuzzyMatch(label.toString().toLowerCase(), query);
-      });
-    }
-
-    function fuzzyMatch(str,pattern){
-      pattern = pattern.split("").reduce(function(a,b){ return a+'[^'+b+']*'+b; });
-      return (new RegExp(pattern)).test(str);
+      return search.fuzzySearch(allLabels, query);
     }
 
     var allLabels = [

@@ -10,7 +10,7 @@
     });
 
   /** @ngInject */
-  function PersonCardController($stateParams, _, moment, api) {
+  function PersonCardController($stateParams, _, moment, api, convertDates) {
     var vm = this;
     vm.personId = $stateParams.personId;
     vm.events = [];
@@ -32,7 +32,8 @@
         var messages = _.map(data.messages, function(message){
           return _.assign(message, {eventType: 'message'});
         });
-        vm.events = _.union(vm.events, interactions, messages);
+        var events = _.union(vm.events, interactions, messages);
+        vm.events = convertDates.stringToMoment(events, ['timestamp']);
         vm.loading = false;
       }, function(error){
         vm.loading = false;

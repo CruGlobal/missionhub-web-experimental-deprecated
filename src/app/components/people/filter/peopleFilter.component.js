@@ -12,7 +12,7 @@
     });
 
   /** @ngInject */
-  function PeopleFilterController(_, api, $element, $timeout) {
+  function PeopleFilterController(_, api, $element, $timeout, search) {
     var vm = this;
     vm.autocompleteFieldQuery = autocompleteFieldQuery;
     vm.transformChip = transformChip;
@@ -74,22 +74,7 @@
         }
       ];
 
-      return fuzzyFilter(allFields, query);
-    }
-
-    function fuzzyFilter(possibilities, query) {
-      if(query === '' || query === null){
-        return possibilities;
-      }
-      query = query.toLowerCase();
-      return _.filter(possibilities, function(possibility) {
-        return fuzzyMatch(possibility.name.toString().toLowerCase(), query);
-      });
-    }
-
-    function fuzzyMatch(str, pattern) {
-      pattern = pattern.split("").reduce(function(a,b){ return a+'[^'+b+']*'+b; });
-      return (new RegExp(pattern)).test(str);
+      return search.fuzzySearch(allFields, query, 'name');
     }
 
     function transformChip(chip) {
@@ -106,7 +91,7 @@
         return value ? value.name : null;
       });
       return api.filters.possibilities[type](values[0], values[1]).then(function (possibilities){
-        return fuzzyFilter(possibilities, query);
+        return search.fuzzySearch(possibilities, query);
       });
     }
 

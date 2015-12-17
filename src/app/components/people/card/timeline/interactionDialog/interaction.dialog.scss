@@ -1,0 +1,12 @@
+.interaction-dialog{
+  .dialog-heading{
+    font-size: 20px;
+    small{
+      color: #FFFFFF;
+    }
+    a:hover, a:active, a:focus{
+      color: $colorCru-orange;
+      text-decoration: none;
+    }
+  }
+}

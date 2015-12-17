@@ -49,79 +49,25 @@
 <md-card class="timeline-card" ng-repeat="event in filteredEvents = (timeline.events | eventType:timeline.visibleEventTypes | orderBy : '-timestamp')">
   <div class="timeline-header" layout="row" layout-align="start center">
     <div class="timeline-badge md-primary">
-      <div class="badge-day">{{timeline.moment(event.timestamp).format('D')}}</div>
-      <div class="badge-month">{{timeline.moment(event.timestamp).format('MMM')}}</div>
+      <div class="badge-day">{{event.timestamp.format('D')}}</div>
+      <div class="badge-month">{{event.timestamp.format('MMM')}}</div>
     </div>
-    <h4 ng-switch="event.eventType" ng-if="!event.edit">
-      <ng-md-icon ng-switch-when="interaction" icon="people"></ng-md-icon>
-      <ng-md-icon ng-switch-when="message" icon="email"></ng-md-icon>
-      <ng-md-icon ng-switch-when="survey" icon="assignment"></ng-md-icon>
-      <span ng-switch-when="interaction" ng-switch="event.type">
-        <span ng-switch-when="Comment Only">Comment</span>
-        <span ng-switch-when="Spiritual Conversation">Spiritual Conversation</span>
-        <span ng-switch-when="Personal Evangelism">Personal Evangelism</span>
-        <span ng-switch-when="Personal Evangelism Decisions">Personal Evangelism Decisions</span>
-        <span ng-switch-when="Holy Spirit Presentation">Holy Spirit Presentation</span>
-        <span ng-switch-when="Graduating on Mission">Graduating on Mission</span>
-        <span ng-switch-default>{{event.type}}</span>
-      </span>
-      <span ng-switch-when="message" ng-switch="event.sent_via">
-        <span ng-switch-when="sms">SMS</span>
-        <span ng-switch-when="email">Email</span>
-        <span ng-switch-default>{{event.sent_via | capitalize}}</span>
-      </span>
-      <span ng-switch-when="survey">
-        {{event.surveyType}}
-      </span>
-      <small>
-        <span ng-switch-when="interaction">
-          with
-          <span ng-repeat-start="initiator in event.initiators" ng-if="$last && !$first"> and</pre></span>
-          <span ng-repeat-end><a ui-sref="people.card({personId: initiator.id})">{{initiator.name}}</a>{{!$last && event.initiators.length > 2 ? ',' : ''}}</span>
-        </span>
-        <span ng-switch-when="message">
-          from
-          <a ui-sref="people.card({personId: event.sender.id})">{{event.sender.name}}</a>
-        </span>
-        <span ng-switch-when="survey">TODO: does this need/have a initiator?</span>
-      </small>
-    </h4>
-    <div ng-if="event.edit" layout="row" layout-align="start center">
-      <md-input-container class="remove-padding">
-        <label>Type</label>
-        <md-select ng-model="event.type">
-          <md-option ng-value="type" ng-repeat="type in timeline.interactionTypes">{{type}}</md-option>
-        </md-select>
-      </md-input-container>
-      <h4>
-        <small>with {{event.initiator}}</small>
-      </h4>
-    </div>
+    <h4><display-event-title event="event"></display-event-title></h4>
     <span flex></span>
-    <md-button class="md-icon-button" aria-label="Edit" ng-click="event.edit=true" ng-if="event.eventType === 'interaction' && !event.edit">
+    <md-button class="md-icon-button" aria-label="Edit" ng-click="timeline.showInteractionDialog(event)" ng-if="event.eventType === 'interaction'">
       <ng-md-icon icon="edit"></ng-md-icon>
-    </md-button>
-    <md-button class="md-icon-button" aria-label="Save" ng-click="event.edit=false" ng-if="event.edit">
-      <ng-md-icon icon="save"></ng-md-icon>
     </md-button>
   </div>
   <md-card-content class="no-spacing-above" ng-switch="event.eventType">
-    <p ng-if="!event.edit">
+    <p>
       <small class="text-muted">
         <i class="glyphicon glyphicon-time"></i>
-        {{timeline.moment(event.timestamp).fromNow()}}
+        {{event.timestamp.fromNow()}}
         - Visible to everyone in {{event.organization.name}}
         <span ng-if="event.creator"> - Created by <a ui-sref="people.card({personId: event.creator.id})">{{event.creator.name}}</a></span>
       </small>
     </p>
-    <div ng-if="event.edit">
-      <md-datepicker ng-model="event.time"></md-datepicker>
-    </div>
-    <div ng-switch-when="interaction" ng-if="!event.edit">{{event.comment}}</div>
-    <md-input-container ng-switch-when="interaction" ng-if="event.edit">
-      <label>Comment</label>
-      <textarea ng-model="event.comment"></textarea>
-    </md-input-container>
+    <div ng-switch-when="interaction">{{event.comment}}</div>
     <div ng-switch-when="message">
       <md-card class="message-container md-whiteframe-1dp">
         <md-card-content>

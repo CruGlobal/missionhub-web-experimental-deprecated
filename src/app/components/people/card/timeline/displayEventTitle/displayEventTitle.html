@@ -1,0 +1,44 @@
+<div ng-switch="displayEventTitle.event.eventType">
+  <ng-md-icon ng-switch-when="interaction" icon="people"></ng-md-icon>
+  <ng-md-icon ng-switch-when="message" icon="email"></ng-md-icon>
+  <ng-md-icon ng-switch-when="survey" icon="assignment"></ng-md-icon>
+  <span ng-switch-when="interaction" ng-switch="displayEventTitle.event.type">
+    <span ng-switch-when="Comment Only">Comment</span>
+    <span ng-switch-when="Spiritual Conversation">Spiritual Conversation</span>
+    <span ng-switch-when="Personal Evangelism">Personal Evangelism</span>
+    <span ng-switch-when="Personal Evangelism Decisions">Personal Evangelism Decisions</span>
+    <span ng-switch-when="Holy Spirit Presentation">Holy Spirit Presentation</span>
+    <span ng-switch-when="Graduating on Mission">Graduating on Mission</span>
+    <span ng-switch-default>{{displayEventTitle.event.type}}</span>
+  </span>
+  <span ng-switch-when="message" ng-switch="displayEventTitle.event.sent_via">
+    <span ng-switch-when="sms">SMS</span>
+    <span ng-switch-when="email">Email</span>
+    <span ng-switch-default>{{displayEventTitle.event.sent_via | capitalize}}</span>
+  </span>
+  <span ng-switch-when="survey">
+    {{displayEventTitle.event.surveyType}}
+  </span>
+  <small>
+    <span ng-switch-when="interaction" ng-switch="displayEventTitle.event.initiators.length">
+      <span ng-switch-when="0"></span>
+      <span ng-switch-when="1">
+        with <a ui-sref="people.card({personId: displayEventTitle.event.initiators[0].id})">{{displayEventTitle.event.initiators[0].name}}</a>
+      </span>
+      <span ng-switch-when="2">
+        with <a ui-sref="people.card({personId: displayEventTitle.event.initiators[0].id})">{{displayEventTitle.event.initiators[0].name}}</a> and <a ui-sref="people.card({personId: displayEventTitle.event.initiators[1].id})">{{displayEventTitle.event.initiators[1].name}}</a>
+      </span>
+      <span ng-switch-when="3">
+        with <a ui-sref="people.card({personId: displayEventTitle.event.initiators[0].id})">{{displayEventTitle.event.initiators[0].name}}</a>, <a ui-sref="people.card({personId: displayEventTitle.event.initiators[1].id})">{{displayEventTitle.event.initiators[1].name}}, and 1 other</a>
+      </span>
+      <span ng-switch-default>
+        with <a ui-sref="people.card({personId: displayEventTitle.event.initiators[0].id})">{{displayEventTitle.event.initiators[0].name}}</a>, <a ui-sref="people.card({personId: displayEventTitle.event.initiators[1].id})">{{displayEventTitle.event.initiators[1].name}}, and {{displayEventTitle.event.initiators.length - 2}} others</a>
+      </span>
+    </span>
+    <span ng-switch-when="message">
+      from
+      <a ui-sref="people.card({personId: displayEventTitle.event.sender.id})">{{displayEventTitle.event.sender.name}}</a>
+    </span>
+    <span ng-switch-when="survey">TODO: does this need/have a initiator?</span>
+  </small>
+</div>
