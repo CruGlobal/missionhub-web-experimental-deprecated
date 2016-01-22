@@ -5,6 +5,7 @@
     .module('missionhub.messages')
     .component('messages', {
       controller: MessagesController,
+      controllerAs: 'messages',
       templateUrl: 'app/components/messages/messages.html',
       bindings: {
         new: '='

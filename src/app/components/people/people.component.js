@@ -5,6 +5,7 @@
     .module('missionhub.people')
     .component('people', {
       controller: PeopleController,
+      controllerAs: 'people',
       templateUrl: 'app/components/people/people.html'
     });
 

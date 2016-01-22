@@ -5,6 +5,7 @@
     .module('missionhub.dashboard')
     .component('dashboard', {
       controller: DashboardController,
+      controllerAs: 'dashboard',
       templateUrl: 'app/components/dashboard/dashboard.html'
     });
 

@@ -5,6 +5,7 @@
     .module('missionhub.people.card')
     .component('contactInfo', {
       controller: ContactInfoController,
+      controllerAs: 'contactInfo',
       templateUrl: 'app/components/people/card/contactInfo/contactInfo.html',
       bindings: {
         title: '@',

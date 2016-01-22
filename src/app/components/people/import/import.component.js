@@ -5,6 +5,7 @@
     .module('missionhub.people.import')
     .component('peopleImport', {
       controller: PeopleImportController,
+      controllerAs: 'peopleImport',
       templateUrl: 'app/components/people/import/import.html'
     });
 

@@ -5,6 +5,7 @@
     .module('missionhub.people')
     .component('peopleFilter', {
       controller: PeopleFilterController,
+      controllerAs: 'peopleFilter',
       templateUrl: 'app/components/people/filter/peopleFilter.html',
       bindings: {
         filters: '='

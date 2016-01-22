@@ -5,6 +5,7 @@
     .module('missionhub.welcome')
     .component('welcome', {
       controller: WelcomeController,
+      controllerAs: 'welcome',
       templateUrl: 'app/components/welcome/welcome.html'
     });
 

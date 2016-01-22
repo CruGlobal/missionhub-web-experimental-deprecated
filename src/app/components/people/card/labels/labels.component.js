@@ -5,6 +5,7 @@
     .module('missionhub.people.card')
     .component('personLabels', {
       controller: PersonLabelsController,
+      controllerAs: 'personLabels',
       templateUrl: 'app/components/people/card/labels/labels.html',
       bindings: {
         labels: '='

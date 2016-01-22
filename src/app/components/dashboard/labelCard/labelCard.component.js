@@ -5,6 +5,7 @@
     .module('missionhub.dashboard')
     .component('labelCard', {
       controller: LabelCardController,
+      controllerAs: 'labelCard',
       templateUrl: 'app/components/dashboard/labelCard/labelCard.html',
       bindings: {
         data: '='

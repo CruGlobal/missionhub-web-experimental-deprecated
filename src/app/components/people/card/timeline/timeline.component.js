@@ -5,6 +5,7 @@
     .module('missionhub.people.card')
     .component('timeline', {
       controller: TimelineController,
+      controllerAs: 'timeline',
       templateUrl: 'app/components/people/card/timeline/timeline.html',
       bindings: {
         events: '=',

@@ -5,8 +5,8 @@
     .module('missionhub.people.card')
     .component('personCard', {
       controller: PersonCardController,
-      templateUrl: 'app/components/people/card/card.html',
-      controllerAs: 'card'
+      controllerAs: 'card',
+      templateUrl: 'app/components/people/card/card.html'
     });
 
   /** @ngInject */
