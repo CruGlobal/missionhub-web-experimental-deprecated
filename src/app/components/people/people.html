@@ -14,20 +14,20 @@
       <table md-data-table md-row-select="people.selected" md-progress="people.peoplePromise">
         <thead md-order="people.query.order" md-trigger="people.loadPeople">
         <tr>
-          <th name="First" order-by="first_name"></th>
-          <th name="Last" order-by="last_name"></th>
+          <th name="First" order-by="firstName"></th>
+          <th name="Last" order-by="lastName"></th>
           <th name="Gender" order-by="gender"></th>
-          <th name="Status" order-by="followup_status"></th>
-          <th name="Year in School" order-by="year_in_school"></th>
+          <th name="Status" order-by="followupStatus"></th>
+          <th name="Year in School" order-by="yearInSchool"></th>
         </tr>
         </thead>
         <tbody>
         <tr ui-sref="people.card({personId: person.id})" ng-repeat="person in people.people track by $index">
-          <td>{{person.first_name}}</td>
-          <td>{{person.last_name}}</td>
+          <td>{{person.firstName}}</td>
+          <td>{{person.lastName}}</td>
           <td>{{person.gender}}</td>
-          <td>{{person.organizational_permission.followup_status | capitalize}}</td>
-          <td>{{person.year_in_school}}</td>
+          <td>{{person.organizationalPermissions[0].followupStatus | capitalize}}</td>
+          <td>{{person.yearInSchool}}</td>
         </tr>
         </tbody>
       </table>

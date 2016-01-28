@@ -4,21 +4,21 @@
       <img class="profile-picture" ng-src="{{card.person.picture}}?width=100&height=100" alt="Profile Picture" ng-if="card.person.picture">
       <initials
         ng-if="!card.person.picture"
-        first="card.person.first_name[0]"
-        last="card.person.last_name[0]"
-        full-name="card.person.full_name">
+        first="card.person.firstName[0]"
+        last="card.person.lastName[0]"
+        full-name="card.person.fullName">
       </initials>
       <div layout="column" flex>
         <div layout="column" layout-gt-md="row">
           <div layout="row" flex>
             <h1 flex="50">
               <md-input-container md-no-float>
-                <input type="text" ng-model="card.person.first_name" placeholder="First Name">
+                <input type="text" ng-model="card.person.firstName" placeholder="First Name">
               </md-input-container>
             </h1>
             <h1 flex="50">
               <md-input-container md-no-float>
-                <input type="text" ng-model="card.person.last_name" placeholder="Last Name">
+                <input type="text" ng-model="card.person.lastName" placeholder="Last Name">
               </md-input-container>
             </h1>
           </div>
@@ -26,7 +26,7 @@
         <div layout="row" layout-align="space-between start">
           <md-input-container>
             <label>Follow-up Status</label>
-            <md-select ng-model="card.person.organizational_permissions[0].followup_status">
+            <md-select ng-model="card.person.organizationalPermissions[0].followupStatus">
               <md-option value="uncontacted">Uncontacted</md-option>
               <md-option value="attempted_contact">Attempted Contact</md-option>
               <md-option value="contacted">Contacted</md-option>
@@ -36,7 +36,7 @@
           </md-input-container>
           <md-input-container>
             <label>Cru Role</label>
-            <md-select ng-model="card.person.organizational_permissions[0].cru_status.name">
+            <md-select ng-model="card.person.organizationalPermissions[0].cruStatus.name">
               <md-option value="None">None</md-option>
               <md-option value="Volunteer">Volunteer</md-option>
               <md-option value="Affiliate">Affiliate</md-option>
@@ -47,7 +47,7 @@
           </md-input-container>
           <md-input-container>
             <label>Enrollment</label>
-            <md-select ng-model="card.person.student_status">
+            <md-select ng-model="card.person.studentStatus">
               <md-option value="not_student">Not currently a student</md-option>
               <md-option value="middle_school">Middle School</md-option>
               <md-option value="high_school">High School</md-option>
@@ -73,8 +73,8 @@
         <div class="page-header">
           <h4>Contact Info</h4>
         </div>
-        <contact-info title="Emails" label="Email" data="card.person.email_addresses"></contact-info>
-        <contact-info title="Phone Numbers" label="Phone Number" data="card.person.phone_numbers" ></contact-info>
+        <contact-info title="Emails" label="Email" data="card.person.emailAddresses"></contact-info>
+        <contact-info title="Phone Numbers" label="Phone Number" data="card.person.phoneNumbers" ></contact-info>
         <contact-info title="Addresses" label="Address" data="card.person.addresses"></contact-info>
       </div>
       <div flex layout="column">
