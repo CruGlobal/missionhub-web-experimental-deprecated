@@ -13,7 +13,6 @@
     return factory;
 
     function convertStringsToMoment(arr, keys){
-      console.log('converting dates', arr, keys);
       return _.map(arr, function(obj){
         _.forEach(keys, function(key){
           obj[key] = moment(obj[key]);

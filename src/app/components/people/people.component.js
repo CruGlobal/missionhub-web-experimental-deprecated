@@ -10,15 +10,13 @@
     });
 
   /** @ngInject */
-  function PeopleController(api) {
+  function PeopleController($scope, api, $log) {
     var vm = this;
     vm.loadPeople = loadPeople;
     vm.selected = [];
     vm.query = {
       filter: '',
-      order: 'last_name',
-      limit: 25,
-      page: 1
+      order: 'lastName'
     };
     //TODO: load total users from server with loadPeople request
     vm.total = 100;
@@ -31,16 +29,27 @@
     }
 
     function loadPeople(){
-      var order = vm.query.order;
-      var limit = vm.query.limit;
-      var offset = limit * (vm.query.page - 1);
-      if(order.charAt(0) === '-'){
-        order = order.slice(1) + ' DESC';
+      var query = null;
+      var order = {
+        property: vm.query.order,
+        descending: false
+      };
+      if(order.property.charAt(0) === '-'){
+        order.property = vm.query.order.slice(1);
+        order.descending = true;
       }
 
-      vm.peoplePromise = api.people.all(order, limit, offset).then(function(data){
-        vm.people = data;
-      });
+      api.people.all(query, order).safeApply($scope,
+        function(data){
+          vm.people = data;
+        })
+        .subscribe(
+          function(data){
+            console.log('receiving vm.people subscription', vm.people);
+          },
+          function(err){ $log.error('Observable error in people component:', err)},
+          function(){ console.log('people component observable completed')}
+        );
     }
   }
 })();

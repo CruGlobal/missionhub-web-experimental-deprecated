@@ -44,7 +44,7 @@
     }
 
     function getGoogleAccessToken(){
-      return 'secret token'; //TODO: implement requesting this from server
+      return 'secret token'; //TODO: implement requesting this from server for accessing the Drive api client-side
     }
 
     function initialize() {
