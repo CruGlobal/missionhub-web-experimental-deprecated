@@ -26,6 +26,7 @@
       vm.loading = true;
       api.people.get(vm.personId)
         .bind($scope, 'card.person', 'people')
+        .observable
         .safeApply($scope, function(data) {
           if (data) {
             var interactions = _.map(data.interactions, function (interaction) {

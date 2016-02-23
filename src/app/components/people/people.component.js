@@ -39,10 +39,12 @@
         order.descending = true;
       }
 
-      api.people.all(query, order).safeApply($scope,
-        function(data){
-          vm.people = data;
-        })
+      api.people.all(query, order)
+        .observable
+        .safeApply($scope,
+          function(data){
+            vm.people = data;
+          })
         .subscribe(
           function(data){
             console.log('receiving vm.people subscription', vm.people);

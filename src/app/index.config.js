@@ -15,13 +15,13 @@
       },
       vars: {
         development: {
-          apiBaseUri: 'http://localhost:3000/apis/v4/'
+          apiBaseUri: 'http://localhost:3000/apis/v4'
         },
         staging: {
-          apiBaseUri: 'https://stage.missionhub.com/apis/v4/'
+          apiBaseUri: 'https://stage.missionhub.com/apis/v4'
         },
         production: {
-          apiBaseUri: 'https://www.missionhub.com/apis/v4/'
+          apiBaseUri: 'https://www.missionhub.com/apis/v4'
         }
       }
     });
